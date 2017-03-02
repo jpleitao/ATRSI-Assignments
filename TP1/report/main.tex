@@ -72,7 +72,7 @@ The current assignment proposes a recursive identification of two distinct linea
 
 The recursive identification task will be based on provided datasets, where inputs and corresponding outputs for the systems in question were collected and stored: for the first system, two distinct datasets were collected each containing an input and output signal over a period of time; in the second system only a single dataset was provided, containing an input signal and the corresponding response of the system.
 
-Based on the provided datasets, the parameters of the models that describe each system can be estimated and, consequently, the corresponding linear systems can be identified. Section \ref{arx_estimation} covers the estimation procedure for the parameters of the first model, while section \ref{armax_estimation} is related with the equivalent procedure, applied for the second system. Finally, section \ref{conclusion} presents some concluding remarks.
+Based on the provided datasets, the parameters of the models that describe each system can be estimated and, consequently, the corresponding linear systems can be identified. Section \ref{arx_estimation} covers the estimation procedure for the parameters of the first model, while section \ref{armax_estimation} is related with the equivalent procedure, applied for the second system.
 
 \section{ARX Estimation}
 \label{arx_estimation}
@@ -132,6 +132,7 @@ As detailed in section \ref{introduction}, two datasets containing measured inpu
 \end{enumerate}
 
 \subsubsection{Estimation \#1}
+\label{estimation1}
 
 For the first system to estimate at this point, the $selstruct$ function produced the following values for the estimations of $n_{a}$, $n_{b}$ and $n_{k}$: $4$, $5$ and $1$, respectively.
 
@@ -157,6 +158,7 @@ After the estimation process was completed, the developed estimator needed to be
 
 
 \subsubsection{Estimation \#2}
+\label{estimation2}
 
 For the second system to estimate at this point, the $selstruct$ function produced the following values for the estimations of $n_{a}$, $n_{b}$ and $n_{k}$: $2$, $3$ and $1$, respectively.
 
@@ -180,11 +182,17 @@ After the estimation process was completed, the developed estimator needed to be
 	\end{minipage}
 \end{figure}
 
-
 \subsubsection{Remarks}
 
-Só experimentar aqui o estimador obtido para o primeiro caso no segundo e o do segundo no primeiro, e dizer que resultados é que foram observados.
+In general, the presented results suggest that the computed estimators have a reduced generalization capacity. This statement is supported by the low fit values registered during the validation, namely in the offline approach.
 
+In a posterior stage of the analysis, the obtained estimators were validated with the opposite validation dataset - that is, the estimator obtained in \ref{estimation1} was validated with the validation dataset of \ref{estimation1} and vice-versa.
+
+Regarding the first estimator (obtained in \ref{estimation1}), a fit of $65.23\%$ and a \emph{Mean Squared Error (MSE)} of $2.4457$ were registered using the iterative approach, while a fit of $30.7064 \%$ was registered in the \emph{offline} approach. Regarding the second estimator (obtained in \ref{estimation2}), a fit of $65.42\%$ and a \emph{Mean Squared Error (MSE)} of $3.5215$ were registered using the iterative approach, while a fit of $22.4408 \%$ was registered in the \emph{offline} approach.
+
+Indeed, from the iterative approach, very similar results were registered with respect to the fit; however, in the offline approach, the first estimator registered an higher fitness on the validation data of the second estimator. Regardless,as already stated, both fitnesses are very small at this point.
+
+These results suggest the need to collect a larger volume of data, which may increase the generalization capacity of the classifier. Regardless, the obtained results also suggest a low signal/noise relationship for the system, making its approximation considerably more difficult, as the signal and the noise are very similar.
 
 \section{ARMAX Estimation}
 \label{armax_estimation}
@@ -194,23 +202,46 @@ The current section covers the estimation of the parameters of the first system 
 \subsection{Theory}
 \label{theory_armax}
 
-Explicar o ARX e detalhar um pouco como funciona a estimação dos seus parâmetros
+A system described by an \emph{ARMAX} model has a similar structure to the \emph{ARX} model presented in Figure \ref{arx_model}. The difference between the \emph{ARX} and \emph{ARMAX} models is in the system's output, which in the case of \emph{ARMAX} is described by:
 
-Assumir que já conhecemos a ordem
+$$y_{k} = \frac{B(q)}{A(q)} u_{k} + \frac{C(q)}{A(q)} e_{k} $$
+
+where $C(q) = q^{-1} \times c_{1} + ... + q^{-nc} \times c_{nc}$.
+
+In order to compute the parameter estimations, an approach similar to the one presented in \ref{theory_arx} must be conducted, adjusting the dimensions of the vectors and matrices whenever needed to take into account $C(q)$.
 
 \subsection{Practice}
 \label{parameter_estimation_armax}
 
+The practical implementation of the parameter estimation for the \emph{ARMAX} model comprises the following steps:
 
-Como nao sabemos a ordem, estimámos com o dataset, usando função blablabla.
+\begin{enumerate}
+	\item The provided datasets, for each estimation task, were divided into an \emph{estimation} and \emph{validation} dataset, with the first $70\%$ of the data being used for estimation and the remaining $30\%$ for validation.
+	
+	\item As no knowledge regarding the order of the system was available, the number of parameters - $n_{a}$, $n_{b}$ and $n_{c}$ - and the delay of the system, $n_{k}$, were estimated from the provided estimation and validation data. To perform this estimation, a model was estimated for all combinations of the values of $n_{a}$, $n_{b}$, $n_{c}$ and $n_{k}$, using the $armax$\footnote{Available in \emph{MATLAB's System Identification Toolbox}.} function. At this step, the following intervals were considered: $n_{a}$, $n_{b}$, $n_{c} \: \in [1; 10]$ and $n_{k} \: \in [1; 3]$.
+	
+	The model which registered the higher fit on the validation dataset was stored. In this work, this was the case for a model with $[n_{a}, n_{b}, n_{c}, n_{k}] = [7, 7, 10, 1]$.
+	
+	\item In the next step, a recursive parameter estimation was conducted, using the $recursiveARMAX$ and $step$ functions\footnotemark[\value{footnote}], similarly to what was performed for the \emph{ARX} estimation. A \emph{Mean Squared Error (MSE)} of $3.2293$ and a fit of $68.25\%$ were registered. Figure \ref{armax_performance_estimation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative estimation process.
+	
+	\item Finally, the estimator was validated using the validation data. Again, both iterative and offline approaches were performed. In the iterative approach a MSE of $1.2521$ and a fit of $79.12\%$ were registered. Figure \ref{armax_performance_validation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative validation process. In the offline approach a fit of $64.7406\%$ was registered.
+\end{enumerate}
 
-Detalhar o dataset? - So dizer quantas observações temos e assim
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[keepaspectratio=true, scale=0.35]{images/armax_performance_estimation.png}
+		\caption{Performance in the estimation.}
+		\label{armax_performance_estimation}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[keepaspectratio=true, scale=0.35]{images/armax_performance_validation.png}
+		\caption{Performance in the validation.}
+		\label{armax_performance_validation}
+	\end{minipage}
+\end{figure}
 
-Explicar os passos
-
-\section{Conclusion}
-\label{conclusion}
-
-Comentar fit dos resultados, whatever - Comentario critico ao trabalho
 
 \end{document}

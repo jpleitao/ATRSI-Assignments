@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.11.25)  2 MAR 2017 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.11.25)  2 MAR 2017 19:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -709,7 +709,7 @@ File: images/arx1_performance_estimation.png Graphic file (type png)
 
 <use images/arx1_performance_estimation.png>
 Package pdftex.def Info: images/arx1_performance_estimation.png used on input l
-ine 146.
+ine 147.
 (pdftex.def)             Requested size: 160.57614pt x 129.40945pt.
 
 <images/arx1_performance_validation.png, id=26, 535.2497pt x 429.10312pt>
@@ -717,7 +717,7 @@ File: images/arx1_performance_validation.png Graphic file (type png)
 
 <use images/arx1_performance_validation.png>
 Package pdftex.def Info: images/arx1_performance_validation.png used on input l
-ine 152.
+ine 153.
 (pdftex.def)             Requested size: 160.57614pt x 128.73192pt.
  [3]
 <images/arx2_performance_estimation.png, id=33, 478.78876pt x 378.66469pt>
@@ -725,7 +725,7 @@ File: images/arx2_performance_estimation.png Graphic file (type png)
 
 <use images/arx2_performance_estimation.png>
 Package pdftex.def Info: images/arx2_performance_estimation.png used on input l
-ine 171.
+ine 173.
 (pdftex.def)             Requested size: 143.63773pt x 113.60028pt.
 
 <images/arx2_performance_validation.png, id=34, 478.03593pt x 376.40625pt>
@@ -733,41 +733,58 @@ File: images/arx2_performance_validation.png Graphic file (type png)
 
 <use images/arx2_performance_validation.png>
 Package pdftex.def Info: images/arx2_performance_validation.png used on input l
-ine 177.
+ine 179.
 (pdftex.def)             Requested size: 143.41188pt x 112.92273pt.
  [4 <./images/arx1_performance_estimation.png (PNG copy)> <./images/arx1_perfor
 mance_validation.png (PNG copy)> <./images/arx2_performance_estimation.png (PNG
- copy)> <./images/arx2_performance_validation.png (PNG copy)>]
+ copy)> <./images/arx2_performance_validation.png (PNG copy)>] [5]
+<images/armax_performance_estimation.png, id=41, 495.35063pt x 405.76593pt>
+File: images/armax_performance_estimation.png Graphic file (type png)
+
+<use images/armax_performance_estimation.png>
+Package pdftex.def Info: images/armax_performance_estimation.png used on input 
+line 234.
+(pdftex.def)             Requested size: 173.37532pt x 142.0202pt.
+
+<images/armax_performance_validation.png, id=42, 496.10344pt x 402.75468pt>
+File: images/armax_performance_validation.png Graphic file (type png)
+
+<use images/armax_performance_validation.png>
+Package pdftex.def Info: images/armax_performance_validation.png used on input 
+line 240.
+(pdftex.def)             Requested size: 173.6388pt x 140.96625pt.
+
 
 Package caption Warning: Unused \captionsetup[table] on input line 42.
 See the caption package documentation for explanation.
 
-[5] (./main.aux) ) 
+[6 <./images/armax_performance_estimation.png (PNG copy)> <./images/armax_perfo
+rmance_validation.png (PNG copy)>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5716 strings out of 494925
- 77809 string characters out of 6180250
- 152858 words of memory out of 5000000
- 8897 multiletter control sequences out of 15000+600000
+ 5725 strings out of 494925
+ 78265 string characters out of 6180250
+ 152890 words of memory out of 5000000
+ 8904 multiletter control sequences out of 15000+600000
  13704 words of font info for 52 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  41i,9n,43p,631b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti12.pfb>
-Output written on main.pdf (6 pages, 337430 bytes).
+</usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on main.pdf (7 pages, 433232 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
