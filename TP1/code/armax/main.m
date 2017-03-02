@@ -29,6 +29,8 @@ nc = 1:10;
 max_fit = 0;
 model_orders = [];
 
+disp('Going for the loop!')
+
 % Get best guess for parameters
 for i=na
     for j=nb
