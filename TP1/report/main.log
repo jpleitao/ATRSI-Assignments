@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.11.25)  2 MAR 2017 19:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.11.25)  2 MAR 2017 22:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2016/03/31> patch level 3
 Babel <3.9r> and hyphenation patterns for 4 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -699,60 +699,57 @@ File: images/arx_model.png Graphic file (type png)
 <use images/arx_model.png>
 Package pdftex.def Info: images/arx_model.png used on input line 91.
 (pdftex.def)             Requested size: 226.44199pt x 93.54782pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[1] [2 <./images/arx_model.png>]
-<images/arx1_performance_estimation.png, id=25, 535.2497pt x 431.36156pt>
+ [1 <./images/arx_model.png>] [2]
+<images/arx1_performance_estimation.png, id=29, 535.2497pt x 431.36156pt>
 File: images/arx1_performance_estimation.png Graphic file (type png)
 
 <use images/arx1_performance_estimation.png>
 Package pdftex.def Info: images/arx1_performance_estimation.png used on input l
-ine 147.
-(pdftex.def)             Requested size: 160.57614pt x 129.40945pt.
+ine 153.
+(pdftex.def)             Requested size: 187.3402pt x 150.9788pt.
 
-<images/arx1_performance_validation.png, id=26, 535.2497pt x 429.10312pt>
+<images/arx1_performance_validation.png, id=30, 535.2497pt x 429.10312pt>
 File: images/arx1_performance_validation.png Graphic file (type png)
 
 <use images/arx1_performance_validation.png>
 Package pdftex.def Info: images/arx1_performance_validation.png used on input l
-ine 153.
-(pdftex.def)             Requested size: 160.57614pt x 128.73192pt.
- [3]
-<images/arx2_performance_estimation.png, id=33, 478.78876pt x 378.66469pt>
+ine 159.
+(pdftex.def)             Requested size: 187.3402pt x 150.18834pt.
+ [3 <./images/arx1_performance_estimation.png (PNG copy)> <./images/arx1_perfor
+mance_validation.png (PNG copy)>]
+<images/arx2_performance_estimation.png, id=35, 478.78876pt x 378.66469pt>
 File: images/arx2_performance_estimation.png Graphic file (type png)
 
 <use images/arx2_performance_estimation.png>
 Package pdftex.def Info: images/arx2_performance_estimation.png used on input l
-ine 173.
-(pdftex.def)             Requested size: 143.63773pt x 113.60028pt.
+ine 185.
+(pdftex.def)             Requested size: 167.57857pt x 132.53462pt.
 
-<images/arx2_performance_validation.png, id=34, 478.03593pt x 376.40625pt>
+<images/arx2_performance_validation.png, id=36, 478.03593pt x 376.40625pt>
 File: images/arx2_performance_validation.png Graphic file (type png)
 
 <use images/arx2_performance_validation.png>
 Package pdftex.def Info: images/arx2_performance_validation.png used on input l
-ine 179.
-(pdftex.def)             Requested size: 143.41188pt x 112.92273pt.
- [4 <./images/arx1_performance_estimation.png (PNG copy)> <./images/arx1_perfor
-mance_validation.png (PNG copy)> <./images/arx2_performance_estimation.png (PNG
- copy)> <./images/arx2_performance_validation.png (PNG copy)>] [5]
-<images/armax_performance_estimation.png, id=41, 495.35063pt x 405.76593pt>
+ine 191.
+(pdftex.def)             Requested size: 167.31508pt x 131.74416pt.
+ [4 <./images/arx2_performance_estimation.png (PNG copy)> <./images/arx2_perfor
+mance_validation.png (PNG copy)>]
+[5]
+<images/armax_performance_estimation.png, id=43, 495.35063pt x 405.76593pt>
 File: images/armax_performance_estimation.png Graphic file (type png)
 
 <use images/armax_performance_estimation.png>
 Package pdftex.def Info: images/armax_performance_estimation.png used on input 
-line 234.
-(pdftex.def)             Requested size: 173.37532pt x 142.0202pt.
+line 254.
+(pdftex.def)             Requested size: 198.13673pt x 162.3035pt.
 
-<images/armax_performance_validation.png, id=42, 496.10344pt x 402.75468pt>
+<images/armax_performance_validation.png, id=44, 496.10344pt x 402.75468pt>
 File: images/armax_performance_validation.png Graphic file (type png)
 
 <use images/armax_performance_validation.png>
 Package pdftex.def Info: images/armax_performance_validation.png used on input 
-line 240.
-(pdftex.def)             Requested size: 173.6388pt x 140.96625pt.
+line 260.
+(pdftex.def)             Requested size: 198.43785pt x 161.09901pt.
 
 
 Package caption Warning: Unused \captionsetup[table] on input line 42.
@@ -761,30 +758,32 @@ See the caption package documentation for explanation.
 [6 <./images/armax_performance_estimation.png (PNG copy)> <./images/armax_perfo
 rmance_validation.png (PNG copy)>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5725 strings out of 494925
- 78265 string characters out of 6180250
- 152890 words of memory out of 5000000
- 8904 multiletter control sequences out of 15000+600000
- 13704 words of font info for 52 fonts, out of 8000000 for 9000
+ 5730 strings out of 494925
+ 78318 string characters out of 6180250
+ 154891 words of memory out of 5000000
+ 8905 multiletter control sequences out of 15000+600000
+ 14196 words of font info for 53 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 41i,9n,43p,631b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,9n,43p,634b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (7 pages, 433232 bytes).
+/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti9.pfb>
+Output written on main.pdf (7 pages, 457070 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

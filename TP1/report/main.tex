@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[english]{babel}
 \usepackage{natbib}
 \usepackage{url}
@@ -136,21 +136,27 @@ As detailed in section \ref{introduction}, two datasets containing measured inpu
 
 For the first system to estimate at this point, the $selstruct$ function produced the following values for the estimations of $n_{a}$, $n_{b}$ and $n_{k}$: $4$, $5$ and $1$, respectively.
 
-After the on-line learning step (described in the forth step of the previous enumeration), an estimation of the \emph{ARX} model was computed, and a \emph{Mean Squared Error (MSE)} of $3.4019$ was registered over the estimation data. A fit of $70.07\%$ was also registered. Figure \ref{arx1_performance_estimation} plots the measured and estimated outputs of the system, as well as the quadratic error in the estimation process.
+After the on-line learning step (described in the forth step of the previous enumeration), an estimation of the \emph{ARX} model was computed. The following polynomials were computed for $A(q)$ and $B(q)$:
 
-After the estimation process was completed, the developed estimator needed to be properly validated. In the iterative approach (using the $step$ function) a \emph{Mean Squared Error (MSE)} of $1.8455$ and a fit of $74.96$ were registered. Figure \ref{arx1_performance_validation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative validation process. In the \emph{offline} approach, the $compare$ function yield a fit of $45.5052$.
+$A(q) = 1 - 1.3101 \times q^{-1} + 0.4119 \times q^{-2} + 0.0986 \times q^{-3} - 0.0948 \times q^{-4}$
+
+$B(q) = 0.996 \times q^{-1} -1.2982 \times q^{-2} + 0.2242 \times q^{-3} + 0.1695 \times q^{-4} - 0.067 \times q^{-5} $.
+
+A \emph{Mean Squared Error (MSE)} of $3.4019$ was registered over the estimation data. A fit of $70.07\%$ was also registered. Figure \ref{arx1_performance_estimation} plots the measured and estimated outputs of the system, as well as the quadratic error in the estimation process.
+
+After the estimation process was completed, the developed estimator needed to be properly validated. In the iterative approach (using the $step$ function) a \emph{Mean Squared Error (MSE)} of $1.8455$ and a fit of $74.96\%$ were registered. Figure \ref{arx1_performance_validation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative validation process. In the \emph{offline} approach, the $compare$ function yield a fit of $45.5052\%$.
 
 \begin{figure}[H]
 	\centering
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[keepaspectratio=true, scale=0.3]{images/arx1_performance_estimation.png}
+		\includegraphics[keepaspectratio=true, scale=0.35]{images/arx1_performance_estimation.png}
 		\caption{Performance in the estimation.}
 		\label{arx1_performance_estimation}
 	\end{minipage}%
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[keepaspectratio=true, scale=0.3]{images/arx1_performance_validation.png}
+		\includegraphics[keepaspectratio=true, scale=0.35]{images/arx1_performance_validation.png}
 		\caption{Performance in the validation.}
 		\label{arx1_performance_validation}
 	\end{minipage}
@@ -162,21 +168,27 @@ After the estimation process was completed, the developed estimator needed to be
 
 For the second system to estimate at this point, the $selstruct$ function produced the following values for the estimations of $n_{a}$, $n_{b}$ and $n_{k}$: $2$, $3$ and $1$, respectively.
 
-After the on-line learning step (described in the forth step of the previous enumeration), an estimation of the \emph{ARX} model was computed, and a \emph{Mean Squared Error (MSE)} of $2.5223$ was registered over the estimation data. A fit of $65.70\%$ was also registered. Figure \ref{arx2_performance_estimation} plots the measured and estimated outputs of the system, as well as the quadratic error in the estimation process.
+After the on-line learning step (described in the forth step of the previous enumeration), an estimation of the \emph{ARX} model was computed. The following polynomials were computed for $A(q)$ and $B(q)$:
 
-After the estimation process was completed, the developed estimator needed to be properly validated. In the iterative approach (using the $step$ function) a \emph{Mean Squared Error (MSE)} of $1.8668$ and a fit of $69.62$ were registered. Figure \ref{arx2_performance_validation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative validation process. In the \emph{offline} approach, the $compare$ function yield a fit of $32.1336$.
+$A(q) = 1 - 1.3059 \times q^{-1} + 0.4511 \times q^{-2}$
+
+$B(q) = 0.9686 \times q^{-1} -1.2622 \times q^{-2} + 0.2578 \times q^{-3}$.
+
+A \emph{Mean Squared Error (MSE)} of $2.5223$ was registered over the estimation data. A fit of $65.70\%$ was also registered. Figure \ref{arx2_performance_estimation} plots the measured and estimated outputs of the system, as well as the quadratic error in the estimation process.
+
+After the estimation process was completed, the developed estimator needed to be properly validated. In the iterative approach (using the $step$ function) a \emph{Mean Squared Error (MSE)} of $1.8668$ and a fit of $69.62\%$ were registered. Figure \ref{arx2_performance_validation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative validation process. In the \emph{offline} approach, the $compare$ function yield a fit of $32.1336\%$.
 
 \begin{figure}[H]
 	\centering
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[keepaspectratio=true, scale=0.3]{images/arx2_performance_estimation.png}
+		\includegraphics[keepaspectratio=true, scale=0.35]{images/arx2_performance_estimation.png}
 		\caption{Performance in the estimation.}
 		\label{arx2_performance_estimation}
 	\end{minipage}%
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[keepaspectratio=true, scale=0.3]{images/arx2_performance_validation.png}
+		\includegraphics[keepaspectratio=true, scale=0.35]{images/arx2_performance_validation.png}
 		\caption{Performance in the validation.}
 		\label{arx2_performance_validation}
 	\end{minipage}
@@ -186,7 +198,7 @@ After the estimation process was completed, the developed estimator needed to be
 
 In general, the presented results suggest that the computed estimators have a reduced generalization capacity. This statement is supported by the low fit values registered during the validation, namely in the offline approach.
 
-In a posterior stage of the analysis, the obtained estimators were validated with the opposite validation dataset - that is, the estimator obtained in \ref{estimation1} was validated with the validation dataset of \ref{estimation1} and vice-versa.
+In a posterior stage of the analysis, the obtained estimators were validated with the opposite validation dataset - that is, the estimator obtained in \ref{estimation1} was validated with the validation dataset of \ref{estimation2} and vice-versa.
 
 Regarding the first estimator (obtained in \ref{estimation1}), a fit of $65.23\%$ and a \emph{Mean Squared Error (MSE)} of $2.4457$ were registered using the iterative approach, while a fit of $30.7064 \%$ was registered in the \emph{offline} approach. Regarding the second estimator (obtained in \ref{estimation2}), a fit of $65.42\%$ and a \emph{Mean Squared Error (MSE)} of $3.5215$ were registered using the iterative approach, while a fit of $22.4408 \%$ was registered in the \emph{offline} approach.
 
@@ -222,7 +234,15 @@ The practical implementation of the parameter estimation for the \emph{ARMAX} mo
 	
 	The model which registered the higher fit on the validation dataset was stored. In this work, this was the case for a model with $[n_{a}, n_{b}, n_{c}, n_{k}] = [7, 7, 10, 1]$.
 	
-	\item In the next step, a recursive parameter estimation was conducted, using the $recursiveARMAX$ and $step$ functions\footnotemark[\value{footnote}], similarly to what was performed for the \emph{ARX} estimation. A \emph{Mean Squared Error (MSE)} of $3.2293$ and a fit of $68.25\%$ were registered. Figure \ref{armax_performance_estimation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative estimation process.
+	\item In the next step, a recursive parameter estimation was conducted, using the \emph{recursiveARMAX} and $step$ functions\footnotemark[\value{footnote}], similarly to what was performed for the \emph{ARX} estimation. The following polynomials were computed for $A(q)$, $B(q)$ and $C(q)$:
+	
+	$A(q) = 1 -0.6594 q^{-1} - 0.7420 q^{-2} -0.0457 q^{-3} + 0.6375 q^{-4} + 0.5912 q^{-5} -0.9068 q^{-6} + 0.1648 q^{-7} $
+	
+	$B(q) = 0.9032 q^{-1} -0.6362 q^{-2} + 0.9096 q^{-3} -0.0934 q^{-4} + 0.7044 q^{-5} + 0.7503 q^{-6} -0.8708 q^{-7}$.
+	
+	$C(q) = 1 + 0.3564 q^{-1} -0.7181 q^{-2} -0.5632 q^{-3} + 0.4154 q^{-4} + 0.7232 q^{-5} -0.1983 q^{-6} -0.1687 q^{-7} + 0.0836 q^{-8} + 0.0836 q^{-9} + 0.0139 q^{-10}$ 
+	
+	A \emph{Mean Squared Error (MSE)} of $3.2293$ and a fit of $68.25\%$ were registered. Figure \ref{armax_performance_estimation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative estimation process.
 	
 	\item Finally, the estimator was validated using the validation data. Again, both iterative and offline approaches were performed. In the iterative approach a MSE of $1.2521$ and a fit of $79.12\%$ were registered. Figure \ref{armax_performance_validation} plots the measured and estimated outputs of the system, as well as the quadratic error in the iterative validation process. In the offline approach a fit of $64.7406\%$ was registered.
 \end{enumerate}
@@ -231,13 +251,13 @@ The practical implementation of the parameter estimation for the \emph{ARMAX} mo
 	\centering
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[keepaspectratio=true, scale=0.35]{images/armax_performance_estimation.png}
+		\includegraphics[keepaspectratio=true, scale=0.4]{images/armax_performance_estimation.png}
 		\caption{Performance in the estimation.}
 		\label{armax_performance_estimation}
 	\end{minipage}%
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[keepaspectratio=true, scale=0.35]{images/armax_performance_validation.png}
+		\includegraphics[keepaspectratio=true, scale=0.4]{images/armax_performance_validation.png}
 		\caption{Performance in the validation.}
 		\label{armax_performance_validation}
 	\end{minipage}
