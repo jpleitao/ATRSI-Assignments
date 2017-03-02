@@ -69,7 +69,6 @@ for ct=1:estimation_size
     PHat(ct,:,:) = estimator.ParameterCovariance;
 end
 
-% COLOCAR NO RELATORIO!!!!
 A = A(end, :);
 B = B(end, :);
 C = C(end, :);
