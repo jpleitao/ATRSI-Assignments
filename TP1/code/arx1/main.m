@@ -59,7 +59,8 @@ figure();
 subplot(2,1,1);
 plot(time(1:estimation_size), yHat, time(1:estimation_size), true_output);
 legend('Estimated Output', 'Measured Output');
-ylabel('Estimated and Measured Outputs (Estimation)');
+ylabel('System Output');
+title('Estimated and Measured Outputs (Estimation)');
 subplot(2,1,2);
 plot(time(1:estimation_size), (yHat - true_output).^2);
 ylabel('Quadratic Error (Estimation)');
@@ -91,13 +92,12 @@ figure();
 subplot(2,1,1);
 plot(time(estimation_size+1:end), yHat_val, time(estimation_size+1:end), true_output_val);
 legend('Estimated Output', 'Measured Output');
-ylabel('Estimated and Measured Outputs (Validation)');
+ylabel('System Output');
+title('Estimated and Measured Outputs (Validation)');
 subplot(2,1,2);
 plot(time(estimation_size+1:end), (yHat_val - true_output_val).^2);
 ylabel('Quadratic Error (Validation)');
 xlabel('Time [s]');
-figure();
-
 
 estimator.EnableAdaptation = 1;
 
@@ -112,3 +112,50 @@ sys = idpoly(estimator);
 sys.Ts = ts;
 Opt = compareOptions('InitialCondition', 'e');
 [y, validation_fit_offline, x0] = compare(z_val, sys, Opt)   % Fit para a validaçao
+
+save('arx1.mat', 'estimator', 'sys');
+
+% =========================== Try estimator ARX2 ========================
+
+load('/media/jpleitao/Data/PhD/PDCTI/ATRSI/ATRSI-Assignments/TP1/code/arx2/arx2.mat');
+
+
+% =========================== Online ==================================
+estimator.EnableAdaptation = 0;
+
+% A) Iterative error - Online -> MSE
+true_output_val = z_val.OutputData';
+A = zeros(validation_size, numel(estimator.InitialA)); % Not needed
+B = zeros(validation_size, numel(estimator.InitialB)); % Not needed
+yHat_val = zeros(1, validation_size);
+
+get(estimator)
+
+for ct=1:validation_size
+    [ A(ct,:), B(ct,:), yHat_val(ct) ] = step(estimator, z_val.OutputData(ct) , z_val.InputData(ct));
+end
+
+% Plot errors
+figure();
+subplot(2,1,1);
+plot(time(estimation_size+1:end), yHat_val, time(estimation_size+1:end), true_output_val);
+legend('Estimated Output', 'Measured Output');
+ylabel('System Output');
+title('Estimated and Measured Outputs (Validation)');
+subplot(2,1,2);
+plot(time(estimation_size+1:end), (yHat_val - true_output_val).^2);
+ylabel('Quadratic Error (Validation)');
+xlabel('Time [s]');
+
+estimator.EnableAdaptation = 1;
+
+mse_validation = 1/validation_size * sum( (yHat_val - true_output_val).^2)
+mse_validation_goodness = goodnessOfFit(yHat_val', z_val.OutputData, 'MSE')
+% Dao iguais, estamos a calcular bem
+
+validation_fit_online = goodnessOfFit(yHat_val', z_val.OutputData, 'NRMSE')
+
+
+% =========================== Offline ==================================
+Opt = compareOptions('InitialCondition', 'e');
+[y, validation_fit_offline, x0] = compare(z_val, sys, Opt)
