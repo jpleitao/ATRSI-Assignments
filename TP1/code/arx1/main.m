@@ -89,11 +89,11 @@ end
 % Plot errors
 figure();
 subplot(2,1,1);
-plot(time(1:estimation_size), yHat, time(1:estimation_size), true_output);
+plot(time(estimation_size+1:end), yHat_val, time(estimation_size+1:end), true_output_val);
 legend('Estimated Output', 'Measured Output');
 ylabel('Estimated and Measured Outputs (Validation)');
 subplot(2,1,2);
-plot(time(1:estimation_size), (yHat - true_output).^2);
+plot(time(estimation_size+1:end), (yHat_val - true_output_val).^2);
 ylabel('Quadratic Error (Validation)');
 xlabel('Time [s]');
 figure();

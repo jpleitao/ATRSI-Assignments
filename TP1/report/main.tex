@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularx}
+\usepackage{caption} 
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\setmarginsrb{3 cm}{1 cm}{3 cm}{1 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{natbib}
+
+\title{Assignment \#1 - Parameter Estimation}
+\date{\today}
+
+\makeatletter
+\let\thetitle\@title
+\let\thesubtitle\@subtitle
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{plain}
+
+\captionsetup[table]{skip=5pt}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \textsc{\LARGE University of Coimbra}\\[1.0 cm]
+	\textsc{\large Doctoral Program in Information Science and Technology}\\[0.5 cm]
+    \textsc{\large Real Time Learning in Intelligent Systems}\\[5 cm]
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \LARGE \bfseries \thetitle}\\ [0.2 cm]
+    \rule{\linewidth}{0.2 mm} \\[3 cm]
+    
+    \textsc{Joaquim Pedro Bento Gonçalves Pratas Leitão - 2011150072}\\[5 cm]
+	
+	{\large \thedate}\\[2 cm]
+ 
+	\vfill
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+The current document is framed in the scope of the first assignment of the Real Time Learning in Intelligent Systems course, taught for the Doctoral Program in Information Science and Technology at the University of Coimbra, during the academic year of 2016/2017. 
+
+The current assignment proposes a recursive identification of two distinct linear systems. The first system is described by an \emph{ARX} model, while an \emph{ARMAX} model represents the second system.
+
+The recursive identification task will be based on provided datasets, where inputs and corresponding outputs for the systems in question were collected and stored: for the first system, two distinct datasets were collected each containing an input and output signal over a period of time; in the second system only a single dataset was provided, containing an input signal and the corresponding response of the system.
+
+Based on the provided datasets, the parameters of the models that describe each system can be estimated and, consequently, the corresponding linear systems can be identified. Section \ref{arx_estimation} covers the estimation procedure for the parameters of the first model, while section \ref{armax_estimation} is related with the equivalent procedure, applied for the second system. Finally, section \ref{conclusion} presents some concluding remarks.
+
+\section{ARX Estimation}
+\label{arx_estimation}
+
+\subsection{Theory}
+
+Explicar o ARX e detalhar um pouco como funciona a estimação dos seus parâmetros
+
+Assumir que já conhecemos a ordem
+
+\subsection{Parameter Estimation}
+
+Temos dois datasets recolhidos a partir do mesmo sistema, portanto vamos estimar dois modelos ARX diferentes.
+
+Como nao sabemos a ordem, estimámos com o dataset, usando função blablabla.
+
+\subsubsection{Estimation \#1}
+
+Detalhar o dataset? - So dizer quantas observações temos e assim
+
+Explicar os passos
+
+Colocar os A's, B's, etc
+
+\subsubsection{Estimation \#2}
+
+Detalhar o dataset? - So dizer quantas observações temos e assim
+
+Explicar os passos
+
+
+\section{ARMAX Estimation}
+\label{armax_estimation}
+
+\subsection{Theory}
+
+Explicar o ARX e detalhar um pouco como funciona a estimação dos seus parâmetros
+
+Assumir que já conhecemos a ordem
+
+\subsection{Parameter Estimation}
+
+
+Como nao sabemos a ordem, estimámos com o dataset, usando função blablabla.
+
+Detalhar o dataset? - So dizer quantas observações temos e assim
+
+Explicar os passos
+
+\section{Conclusion}
+\label{conclusion}
+
+Comentar fit dos resultados, whatever - Comentario critico ao trabalho
+
+\end{document}
