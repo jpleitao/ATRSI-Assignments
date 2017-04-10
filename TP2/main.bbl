@@ -1,0 +1,89 @@
+\begin{thebibliography}{10}
+
+\bibitem{jain2000statistical}
+A.~K. Jain, R.~P.~W. Duin, and J.~Mao, ``Statistical pattern recognition: A
+  review,'' {\em IEEE Transactions on pattern analysis and machine
+  intelligence}, vol.~22, no.~1, pp.~4--37, 2000.
+
+\bibitem{curse_dimensionality_website}
+``The curse of dimensionality in classification.''
+  \url{http://www.visiondummy.com/2014/04/curse-dimensionality-affect-classification/}.
+\newblock Accessed: 2017-02-28.
+
+\bibitem{kramer1992autoassociative}
+M.~A. Kramer, ``Autoassociative neural networks,'' {\em Computers \& chemical
+  engineering}, vol.~16, no.~4, pp.~313--328, 1992.
+
+\bibitem{fabius2014variational}
+O.~Fabius and J.~R. van Amersfoort, ``Variational recurrent auto-encoders,''
+  {\em arXiv preprint arXiv:1412.6581}, 2014.
+
+\bibitem{nielsen2015neural}
+M.~A. Nielsen, {\em Neural Networks and Deep Learning}.
+\newblock Determination Press, 2015.
+
+\bibitem{barata_saes_presentation}
+R.~Barata, ``Stacked autoencoders.'' Lecture. Advanced Topics in Cognitive
+  Models. University of Coimbra, 2017.
+
+\bibitem{masci2011stacked}
+J.~Masci, U.~Meier, D.~Cire{\c{s}}an, and J.~Schmidhuber, ``Stacked
+  convolutional auto-encoders for hierarchical feature extraction,'' in {\em
+  International Conference on Artificial Neural Networks}, pp.~52--59,
+  Springer, 2011.
+
+\bibitem{kvascev2012radial}
+G.~Kvascev, M.~G. Kvascev, and Z.~Djurovic, ``Radial basis function network
+  based feature extraction for improvement the procedure of sourcing neolithic
+  ceramics,'' in {\em Neural Network Applications in Electrical Engineering
+  (NEUREL), 2012 11th Symposium on}, pp.~95--100, IEEE, 2012.
+
+\bibitem{cho2014learning}
+K.~Cho, B.~Van~Merri{\"e}nboer, C.~Gulcehre, D.~Bahdanau, F.~Bougares,
+  H.~Schwenk, and Y.~Bengio, ``Learning phrase representations using rnn
+  encoder-decoder for statistical machine translation,'' {\em arXiv preprint
+  arXiv:1406.1078}, 2014.
+
+\bibitem{marchi2017deep}
+E.~Marchi, F.~Vesperini, S.~Squartini, and B.~Schuller, ``Learning phrase
+  representations using rnn encoder-decoder for statistical machine
+  translation,'' {\em Computational Intelligence and Neuroscience}, vol.~2017,
+  2017.
+
+\bibitem{vincent2010stacked}
+P.~Vincent, H.~Larochelle, I.~Lajoie, Y.~Bengio, and P.-A. Manzagol, ``Stacked
+  denoising autoencoders: Learning useful representations in a deep network
+  with a local denoising criterion,'' {\em Journal of Machine Learning
+  Research}, vol.~11, no.~Dec, pp.~3371--3408, 2010.
+
+\bibitem{ngiam2011optimization}
+J.~Ngiam, A.~Coates, A.~Lahiri, B.~Prochnow, Q.~V. Le, and A.~Y. Ng, ``On
+  optimization methods for deep learning,'' in {\em Proceedings of the 28th
+  International Conference on Machine Learning (ICML-11)}, pp.~265--272, 2011.
+
+\bibitem{rifai2011contractive}
+S.~Rifai, P.~Vincent, X.~Muller, X.~Glorot, and Y.~Bengio, ``Contractive
+  auto-encoders: Explicit invariance during feature extraction,'' in {\em
+  Proceedings of the 28th international conference on machine learning
+  (ICML-11)}, pp.~833--840, 2011.
+
+\bibitem{hira2015review}
+Z.~M. Hira and D.~F. Gillies, ``A review of feature selection and feature
+  extraction methods applied on microarray data,'' {\em Advances in
+  bioinformatics}, vol.~2015, 2015.
+
+\bibitem{kohonen1995self}
+T.~Kohonen, ``Self-organising maps,'' {\em Springer Series in Information
+  Science}, vol.~30, Berlin, 1995.
+
+\bibitem{villmann1997topology}
+T.~Villmann, R.~Der, M.~Herrmann, and T.~M. Martinetz, ``Topology preservation
+  in self-organizing feature maps: exact definition and measurement,'' {\em
+  IEEE Transactions on Neural Networks}, vol.~8, no.~2, pp.~256--266, 1997.
+
+\bibitem{lawrence1997face}
+S.~Lawrence, C.~L. Giles, A.~C. Tsoi, and A.~D. Back, ``Face recognition: A
+  convolutional neural-network approach,'' {\em IEEE transactions on neural
+  networks}, vol.~8, no.~1, pp.~98--113, 1997.
+
+\end{thebibliography}
