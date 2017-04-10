@@ -5,27 +5,6 @@ A.~K. Jain, R.~P.~W. Duin, and J.~Mao, ``Statistical pattern recognition: A
   review,'' {\em IEEE Transactions on pattern analysis and machine
   intelligence}, vol.~22, no.~1, pp.~4--37, 2000.
 
-\bibitem{curse_dimensionality_website}
-``The curse of dimensionality in classification.''
-  \url{http://www.visiondummy.com/2014/04/curse-dimensionality-affect-classification/}.
-\newblock Accessed: 2017-02-28.
-
-\bibitem{kramer1992autoassociative}
-M.~A. Kramer, ``Autoassociative neural networks,'' {\em Computers \& chemical
-  engineering}, vol.~16, no.~4, pp.~313--328, 1992.
-
-\bibitem{fabius2014variational}
-O.~Fabius and J.~R. van Amersfoort, ``Variational recurrent auto-encoders,''
-  {\em arXiv preprint arXiv:1412.6581}, 2014.
-
-\bibitem{nielsen2015neural}
-M.~A. Nielsen, {\em Neural Networks and Deep Learning}.
-\newblock Determination Press, 2015.
-
-\bibitem{barata_saes_presentation}
-R.~Barata, ``Stacked autoencoders.'' Lecture. Advanced Topics in Cognitive
-  Models. University of Coimbra, 2017.
-
 \bibitem{masci2011stacked}
 J.~Masci, U.~Meier, D.~Cire{\c{s}}an, and J.~Schmidhuber, ``Stacked
   convolutional auto-encoders for hierarchical feature extraction,'' in {\em
@@ -38,6 +17,10 @@ G.~Kvascev, M.~G. Kvascev, and Z.~Djurovic, ``Radial basis function network
   ceramics,'' in {\em Neural Network Applications in Electrical Engineering
   (NEUREL), 2012 11th Symposium on}, pp.~95--100, IEEE, 2012.
 
+\bibitem{fabius2014variational}
+O.~Fabius and J.~R. van Amersfoort, ``Variational recurrent auto-encoders,''
+  {\em arXiv preprint arXiv:1412.6581}, 2014.
+
 \bibitem{cho2014learning}
 K.~Cho, B.~Van~Merri{\"e}nboer, C.~Gulcehre, D.~Bahdanau, F.~Bougares,
   H.~Schwenk, and Y.~Bengio, ``Learning phrase representations using rnn
@@ -49,6 +32,14 @@ E.~Marchi, F.~Vesperini, S.~Squartini, and B.~Schuller, ``Learning phrase
   representations using rnn encoder-decoder for statistical machine
   translation,'' {\em Computational Intelligence and Neuroscience}, vol.~2017,
   2017.
+
+\bibitem{nielsen2015neural}
+M.~A. Nielsen, {\em Neural Networks and Deep Learning}.
+\newblock Determination Press, 2015.
+
+\bibitem{barata_saes_presentation}
+R.~Barata, ``Stacked autoencoders.'' Lecture. Advanced Topics in Cognitive
+  Models. University of Coimbra, 2017.
 
 \bibitem{vincent2010stacked}
 P.~Vincent, H.~Larochelle, I.~Lajoie, Y.~Bengio, and P.-A. Manzagol, ``Stacked
@@ -67,6 +58,65 @@ S.~Rifai, P.~Vincent, X.~Muller, X.~Glorot, and Y.~Bengio, ``Contractive
   Proceedings of the 28th international conference on machine learning
   (ICML-11)}, pp.~833--840, 2011.
 
+\bibitem{lu2013speech}
+X.~Lu, Y.~Tsao, S.~Matsuda, and C.~Hori, ``Speech enhancement based on deep
+  denoising autoencoder.,'' in {\em Interspeech}, pp.~436--440, 2013.
+
+\bibitem{lecun2015deep}
+Y.~LeCun, Y.~Bengio, and G.~Hinton, ``Deep learning,'' {\em Nature}, vol.~521,
+  no.~7553, pp.~436--444, 2015.
+
+\bibitem{arel2010deep}
+I.~Arel, D.~C. Rose, and T.~P. Karnowski, ``Deep machine learning-a new
+  frontier in artificial intelligence research [research frontier],'' {\em IEEE
+  Computational Intelligence Magazine}, vol.~5, no.~4, pp.~13--18, 2010.
+
+\bibitem{cs2312017convolutional}
+``Cs231n convolutional neural networks for visual recognition.''
+  \url{http://cs231n.github.io/convolutional-networks/}.
+\newblock Accessed: 2017-04-10.
+
+\bibitem{lawrence1997face}
+S.~Lawrence, C.~L. Giles, A.~C. Tsoi, and A.~D. Back, ``Face recognition: A
+  convolutional neural-network approach,'' {\em IEEE transactions on neural
+  networks}, vol.~8, no.~1, pp.~98--113, 1997.
+
+\bibitem{krizhevsky2012imagenet}
+A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton, ``Imagenet classification with
+  deep convolutional neural networks,'' in {\em Advances in neural information
+  processing systems}, pp.~1097--1105, 2012.
+
+\bibitem{karpathy2014large}
+A.~Karpathy, G.~Toderici, S.~Shetty, T.~Leung, R.~Sukthankar, and L.~Fei-Fei,
+  ``Large-scale video classification with convolutional neural networks,'' in
+  {\em Proceedings of the IEEE conference on Computer Vision and Pattern
+  Recognition}, pp.~1725--1732, 2014.
+
+\bibitem{lecun1995convolutional}
+Y.~LeCun, Y.~Bengio, {\em et~al.}, ``Convolutional networks for images, speech,
+  and time series,'' {\em The handbook of brain theory and neural networks},
+  vol.~3361, no.~10, p.~1995, 1995.
+
+\bibitem{abdel2012applying}
+O.~Abdel-Hamid, A.-r. Mohamed, H.~Jiang, and G.~Penn, ``Applying convolutional
+  neural networks concepts to hybrid nn-hmm model for speech recognition,'' in
+  {\em Acoustics, Speech and Signal Processing (ICASSP), 2012 IEEE
+  International Conference on}, pp.~4277--4280, IEEE, 2012.
+
+\bibitem{hu2014convolutional}
+B.~Hu, Z.~Lu, H.~Li, and Q.~Chen, ``Convolutional neural network architectures
+  for matching natural language sentences,'' in {\em Advances in neural
+  information processing systems}, pp.~2042--2050, 2014.
+
+\bibitem{clark2014teaching}
+C.~Clark and A.~Storkey, ``Teaching deep convolutional neural networks to play
+  go,'' {\em arXiv preprint arXiv:1412.3409}, 2014.
+
+\bibitem{maddison2014move}
+C.~J. Maddison, A.~Huang, I.~Sutskever, and D.~Silver, ``Move evaluation in go
+  using deep convolutional neural networks,'' {\em arXiv preprint
+  arXiv:1412.6564}, 2014.
+
 \bibitem{hira2015review}
 Z.~M. Hira and D.~F. Gillies, ``A review of feature selection and feature
   extraction methods applied on microarray data,'' {\em Advances in
@@ -80,10 +130,5 @@ T.~Kohonen, ``Self-organising maps,'' {\em Springer Series in Information
 T.~Villmann, R.~Der, M.~Herrmann, and T.~M. Martinetz, ``Topology preservation
   in self-organizing feature maps: exact definition and measurement,'' {\em
   IEEE Transactions on Neural Networks}, vol.~8, no.~2, pp.~256--266, 1997.
-
-\bibitem{lawrence1997face}
-S.~Lawrence, C.~L. Giles, A.~C. Tsoi, and A.~D. Back, ``Face recognition: A
-  convolutional neural-network approach,'' {\em IEEE transactions on neural
-  networks}, vol.~8, no.~1, pp.~98--113, 1997.
 
 \end{thebibliography}
