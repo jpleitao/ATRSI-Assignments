@@ -163,6 +163,37 @@ J.~Lee and I.~Tashev, ``High-level feature representation using recurrent
   neural network for speech emotion recognition,'' in {\em Interspeech 2015},
   ISCA - International Speech Communication Association, September 2015.
 
+\bibitem{smolensky1986information}
+P.~Smolensky, ``Information processing in dynamical systems: Foundations of
+  harmony theory,'' in {\em Parallel Distributed Processing: Explorations in
+  the Microstructure of Cognition} (D.~E. Rumelhart and J.~L. McLelland, eds.),
+  vol.~1, ch.~6, pp.~1944--281, MIT Press, 1986.
+
+\bibitem{ackley1985learning}
+D.~H. Ackley, G.~E. Hinton, and T.~J. Sejnowski, ``A learning algorithm for
+  boltzmann machines,'' {\em Cognitive science}, vol.~9, no.~1, pp.~147--169,
+  1985.
+
+\bibitem{cai2012feature}
+X.~Cai, S.~Hu, and X.~Lin, ``Feature extraction using restricted boltzmann
+  machine for stock price prediction,'' in {\em Computer Science and Automation
+  Engineering (CSAE), 2012 IEEE International Conference on}, vol.~3,
+  pp.~80--83, IEEE, 2012.
+
+\bibitem{ribeiro2017deep}
+B.~Ribeiro, ``Deep learning.'' Lecture. Advanced Topics in Cognitive Models.
+  University of Coimbra, 2017.
+
+\bibitem{hinton2009deep}
+G.~E. Hinton, ``Deep belief networks,'' {\em Scholarpedia}, vol.~4, no.~5,
+  p.~5947, 2009.
+
+\bibitem{hajinoroozi2015feature}
+M.~Hajinoroozi, T.-P. Jung, C.-T. Lin, and Y.~Huang, ``Feature extraction with
+  deep belief networks for driver's cognitive states prediction from eeg
+  data,'' in {\em Signal and Information Processing (ChinaSIP), 2015 IEEE China
+  Summit and International Conference on}, pp.~812--815, IEEE, 2015.
+
 \bibitem{hira2015review}
 Z.~M. Hira and D.~F. Gillies, ``A review of feature selection and feature
   extraction methods applied on microarray data,'' {\em Advances in

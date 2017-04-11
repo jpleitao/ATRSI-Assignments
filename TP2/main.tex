@@ -187,7 +187,26 @@ Recurrent Neural Networks have been extensively applied for Feature Extraction p
 
 \subsection{Restricted Boltzmann Machines}
 
+\emph{Restricted Boltzmann Machines} (RBM)\cite{smolensky1986information} can be defined as a variant of Bolztamnn Machines\footnote{Which, by its turn, is a type of stochastic Recurrent Neural Network and Markov Random Field.} \cite{ackley1985learning} with the restriction that the neurons must form a bipartite graph.
 
+RBM comprehend two types of neurons, also called units: \emph{visible} and \emph{hidden} units. Neurons in the visible unit are connected to the hidden unit through a set of weights in a fully-connected way. The hidden units are used to model the data distribution:
+
+Briefly, the following idea is adopted: Values in the visible unit are known (they can be the original input data) while values in the hidden units are not known. Therefore, the task for a RBM is to estimate these values, and this is accomplished by learning a probabilistic model to describe these values. In the literature covering this topic, this is the same as stating that the values $P(h_{j} | v)$ are going to be learned, where $h_{j}$ is related with one neuron in the hidden unit, while $v$ is related with the values in the visible unit (which are known).
+
+The values of $P(h_{j} | v)$ are learned for a given value of $W$, which includes the weights of the connections between the two units and the bias of the neurons in the RBM. The training of a RBM consists in updating the weights and the bias of the neurons, as referenced in \cite{cai2012feature}.
+
+Regarding Feature Extraction, the connections from the visible to the hidden units can be seen as an encoder, and the connection in the opposite direction as a decoder \cite{ribeiro2017deep}. This is illustrated in figure \ref{restricted_boltzmann_machines}. Therefore, if one considers the expected value of the hidden units, this can be viewed as a set of features extracted from the input data \cite{cai2012feature}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.25]{restricted_boltzmann_machine.png}
+	\caption{Restricted Boltzmann Machine. Taken from \cite{ribeiro2017deep}.}
+	\label{restricted_boltzmann_machines}
+\end{figure}
+
+Resembling the common practices with feedforward networks, namely with autoencoders, RBM can also be stacked together forming \emph{Belief Networks}, or \emph{Deep Belief Networks} (DBN) \cite{hinton2009deep} if a deep architecture is considered.
+
+RBM and DBN have been applied in several problems of distinct natures such as stock price prediction\cite{cai2012feature} and predictions from EEG data \cite{hajinoroozi2015feature}, just to name a few.
 
 \subsection{Self-Organising Maps}
 
