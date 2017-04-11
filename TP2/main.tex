@@ -185,19 +185,27 @@ The main feature of the RTRL algorithm has to due with its mathematical formulat
 
 Recurrent Neural Networks have been extensively applied for Feature Extraction purposes, with the most sounding applications in fields such as image classification \cite{graves2009offline}; time series prediction, namely in EEG signal prediction \cite{prasad2014deep}, speech recognition\cite{lee2015high}, among others. The work of Lee and Tashev\cite{lee2015high}, focusing on speech recognition, applies RNNs in automatic high-level feature representation, which can be considered as a FE task. Indeed, a transformation of raw input data to a representation that can be effectively exploited in machine learning tasks is carried out by a RNN in this work.
 
-\subsection{Radial Basis Functions}
-
-
-
 \subsection{Restricted Boltzmann Machines}
+
+
 
 \subsection{Self-Organising Maps}
 
-In Self-Organising Maps (SOM), another type of ANN used for NLFE \cite{jain2000statistical, hira2015review}, a low-dimension discretized representation of the input space is produced. Such representation is called a map.
+In Self-Organising Maps (SOM), another type of ANN used for Non-Linear Feature Extraction \cite{jain2000statistical, hira2015review}, a low-dimension discretized representation of the input space is produced. Such representation is called a map.
 
 A SOM consists of neurons with associated weight vectors (with the same dimension as the input). The neurons are positioned in the map space, usually in a two-dimensional regular spacing in either a hexagonal or rectangular grid (instead of being organised in layers, like in feedforward ANNs).
 
 During the training of a SOM, inputs are presented to the network and, for each, the weight vector closest to the input vector is identified. Then, the weights of all the neurons in the neighbourhood of the winner neuron (that is, the one whose weight vector was selected) are updated, so that they move towards the input vector. In this way, weight vectors of neighbouring neurons in the grid are likely to represent inputs which are close in the original feature space - a "topology-preserving" map is, thus, formed \cite{kohonen1995self, villmann1997topology}. An example of an application where SOM was used for FE can be found in \cite{lawrence1997face}, although many more are available in the literature.
+
+\subsection{Radial Basis Function}
+
+Radial Basis Function (RBF) neural networks are a type of ANNs characterised by their use of radial basis functions as activation functions in their neurons. Although these networks have been mainly used in classification problems, one can still find applications in the literature where RBF networks were used to perform feature extraction tasks, such as in \cite{lowe1997neuroscale}.
+
+Similarly to Self-Organising Maps, Radial Basis Function neural networks explore neighborhood relationships in the data. When applied to FE tasks, RBF networks are used to predict the coordinates of the data points in the transformed feature space. Such predictions are computed during the training of these structures, by adjusting their weights in order to minimise a suitable error measure.
+
+In short, a RBF network is composed of three neuron layers: input, hidden and output. It is common to adopt non-linear activation functions for the neurons in the network's hidden layer, such as a Gaussian function. On the other hand, neurons in the output layer typically implement a simple linear function, performing a weighted sum of their inputs.
+
+According to Lowe and Tipping\cite{lowe1997neuroscale}, the training process of a RBF network is \emph{"relatively supervised"}. The main reason for this claim is related with the fact that, for each input sample, the specific representation in the transformed feature space is unknown; however a relative measure of the target separation between the points in the transformed space is provided.
 
 \section{Conclusion}\label{sec:conclusion}
 

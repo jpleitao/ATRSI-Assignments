@@ -177,4 +177,9 @@ T.~Villmann, R.~Der, M.~Herrmann, and T.~M. Martinetz, ``Topology preservation
   in self-organizing feature maps: exact definition and measurement,'' {\em
   IEEE Transactions on Neural Networks}, vol.~8, no.~2, pp.~256--266, 1997.
 
+\bibitem{lowe1997neuroscale}
+D.~Lowe and M.~E. Tipping, ``Neuroscale: Novel topographic feature extraction
+  using rbf networks,'' {\em Advances in Neural Information Processing
+  Systems}, pp.~543--549, 1997.
+
 \end{thebibliography}
