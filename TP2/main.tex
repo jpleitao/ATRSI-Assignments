@@ -111,7 +111,7 @@ When pre-training is complete, the encoders are stacked together. Due to this la
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[scale=0.2]{stacked_autoencoders.png}
+	\includegraphics[scale=0.25]{stacked_autoencoders.png}
 	\caption{Stacking autoencoders. Taken from \cite{barata_saes_presentation}.}
 	\label{barata_saes}
 \end{figure}
@@ -130,7 +130,7 @@ The architecture of a CNN comprises several stages: In the first few two types o
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[scale=0.2]{Convolutional_Neural_Net.png}
+	\includegraphics[scale=0.25]{Convolutional_Neural_Net.png}
 	\caption{Conceptual example of a Convolutional Neural Network. Taken from \cite{arel2010deep}.}
 	\label{convolutional_neural_net}
 \end{figure}
@@ -147,11 +147,47 @@ From a feature extraction and dimensionality reduction point of view, the descri
 
 In the vast majority of the scenarios, CNNs are applied in classification problems, and for that reason additional fully-connected layers are considered where an high-level reasoning is performed. Regarding the network's training, the application of a backpropagation gradient through a CNN is similar to regular deep networks, allowing all the weights in all the layers and filters to be trained.
 
-Convolutional Neural Networks have been extensively applied for Feature Extraction purposes, with the most sounding applications in fields such as image \cite{lawrence1997face, krizhevsky2012imagenet}, video \cite{karpathy2014large} and speech processing and recognition \cite{lecun1995convolutional, abdel2012applying}, natural language processing \cite{hu2014convolutional} and analysis of other sequences of 1D signals. CNNs were also applied to develop an artificial intelligence for the board game Go\cite{clark2014teaching, maddison2014move}
+Convolutional Neural Networks have been extensively applied for Feature Extraction purposes, with the most sounding applications in fields such as image\cite{lawrence1997face, krizhevsky2012imagenet}, video\cite{karpathy2014large} and speech processing and recognition\cite{lecun1995convolutional, abdel2012applying}, natural language processing\cite{hu2014convolutional} and analysis of other sequences of 1D signals. CNNs were also applied to develop an artificial intelligence for the board game Go\cite{clark2014teaching, maddison2014move}
 
 \subsection{Recurrent Neural Networks}
 
+Recurrent Neural Networks (RNN) are ANNs designed to process sequential information. Unlike in Feedforward networks, where each layer can only be connected to the next one, forming a directed acyclic graph, connections in a RNN can form directed cycles. That is, in a RNN one neuron layer can be connected to a previous layer, or itself. Figure \ref{recurrent_ann} presents a RNN with one hidden layer.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.2]{recurrent_ann.png}
+	\caption{Illustration of a Recurrent Neural Network. Taken from \cite{deep2015recurrent}.}
+	\label{recurrent_ann}
+\end{figure}
+
+Two distinct types of recurrence can be considered in RNN: If the outputs of a given layer are connected to the inputs of the same layer, then \emph{internal recurrence} is being considered; however, if the output layer is connected to the input layer, \emph{external recurrence} is being considered. Current RNN architectures tend to consider \emph{internal recurrence} rather than \emph{external recurrence}.
+
+RNNs can be seen as structures with \emph{memory}, allowing them to capture information about what previous computations. This is the main reason why RNNs are so popular and effective when dealing with sequential data, such as time series. In theory RNNs can make use of information in arbitrarily long sequences, but in practice they are limited to looking back only a few steps.
+
+Similarly to Feedforward networks, several activation functions can be considered in the neurons of a RNN, of which sigmoid and softmax activation functions are examples.
+
+Studying the literature in the topic of RNNs several architectures for RNNs can be found. the most popular architectures proposed in the literature include \emph{Elman}\cite{elman1990finding,elman1991distributed} and \emph{Jordan}\cite{jordan1997serial} networks. Because of space restrictions, a detailed description of the different structures will not be presented. The reader is directed to the cited works for a more detailed coverage.
+
+With respect to the training of this networks, \emph{Backpropagation Through Time} (BPTT) is among the most referenced and known algorithms applied to RNN. BPTT is defined as an adaptation of the popular backpropagation\footnote{A detailed explanation on how the backpropagation method works can be found in \cite{nielsen2015neural}.} training method applied in feedforward neural networks. This method proposes an \emph{"unfolding"} of the recurrences in the network, as presented in figure \ref{recurrent_ann_training}. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.25]{recurrent_ann_training.jpg}
+	\caption{Illustration of a RecurrentNeural Network. Taken from \cite{deep2015recurrent}.}
+	\label{recurrent_ann_training}
+\end{figure}
+
+Applying this technique, a feedforward neural network is obtained, and the backpropagation algorithm can be applied. During the training process the BPTT algorithm progressively unfolds the network, leading to a continuous increase in the size of the network. In theory, BPTT does not define a limit for the unfolding, although approaches such as \emph{Truncated BPTT} have been proposed to achieve this by defining a fixed number of layers in the network.
+
+Other alternatives to these methods can also be identified in the literature, of which \emph{Kalman Filters}\cite{kalman1960new}, \emph{Real-Time Recurrent Learning} (RTRL)\cite{williams1989learning} and \emph{Long Short-Term Memory (LSTM)}\cite{hochreiter1997long}.
+
+The main feature of the RTRL algorithm has to due with its mathematical formulation: the derivatives are explicitly computed, and therefore, no unfolding is performed. By its turn, LSTM avoids the well-known vanishing gradient problems and introduces a distinct architecture, where units are implemented in blocks containing gates used to control the flow of information into or out of their memory. Again, due to size restrictions on the current paper, the reader is deferred to the cited literature for a more in-depth coverage of these techinques.
+
+Recurrent Neural Networks have been extensively applied for Feature Extraction purposes, with the most sounding applications in fields such as image classification \cite{graves2009offline}; time series prediction, namely in EEG signal prediction \cite{prasad2014deep}, speech recognition\cite{lee2015high}, among others. The work of Lee and Tashev\cite{lee2015high}, focusing on speech recognition, applies RNNs in automatic high-level feature representation, which can be considered as a FE task. Indeed, a transformation of raw input data to a representation that can be effectively exploited in machine learning tasks is carried out by a RNN in this work.
+
 \subsection{Radial Basis Functions}
+
+
 
 \subsection{Restricted Boltzmann Machines}
 

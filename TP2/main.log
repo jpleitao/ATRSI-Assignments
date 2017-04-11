@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.6)  11 APR 2017 00:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.6)  11 APR 2017 16:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -706,15 +706,29 @@ File: stacked_autoencoders.png Graphic file (type png)
 
 <use stacked_autoencoders.png>
 Package pdftex.def Info: stacked_autoencoders.png used on input line 114.
-(pdftex.def)             Requested size: 111.65517pt x 71.30513pt.
+(pdftex.def)             Requested size: 139.57109pt x 89.13277pt.
 
 <Convolutional_Neural_Net.png, id=16, 775.89874pt x 395.4775pt>
 File: Convolutional_Neural_Net.png Graphic file (type png)
 
 <use Convolutional_Neural_Net.png>
 Package pdftex.def Info: Convolutional_Neural_Net.png used on input line 133.
-(pdftex.def)             Requested size: 155.177pt x 79.09409pt.
- [2 <./stacked_autoencoders.png> <./Convolutional_Neural_Net.png>] (./main.bbl
+(pdftex.def)             Requested size: 193.97421pt x 98.86913pt.
+ [2 <./stacked_autoencoders.png> <./Convolutional_Neural_Net.png>] <recurrent_a
+nn.png, id=22, 133.49875pt x 306.14375pt>
+File: recurrent_ann.png Graphic file (type png)
+
+<use recurrent_ann.png>
+Package pdftex.def Info: recurrent_ann.png used on input line 158.
+(pdftex.def)             Requested size: 26.69926pt x 61.22766pt.
+
+<recurrent_ann_training.jpg, id=23, 797.98125pt x 320.19624pt>
+File: recurrent_ann_training.jpg Graphic file (type jpg)
+
+<use recurrent_ann_training.jpg>
+Package pdftex.def Info: recurrent_ann_training.jpg used on input line 175.
+(pdftex.def)             Requested size: 199.49481pt x 80.04886pt.
+ (./main.bbl [3 <./recurrent_ann.png> <./recurrent_ann_training.jpg>]
 Underfull \hbox (badness 2932) in paragraph at lines 25--29
 []\OT1/ppl/m/n/8.03 K. Cho, B. Van Merri[]enboer, C. Gul-cehre, D. Bah-danau,
  []
@@ -731,15 +745,32 @@ Underfull \hbox (badness 2050) in paragraph at lines 75--78
 tworks/$.  Ac-
  []
 
-) [3] (./main.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
+[]\OT1/ppl/m/n/8.03 ``Recurrent neu-ral net-works tu-to-rial, part 1 { in-tro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
+\OT1/ppl/m/n/8.03 duc-tion to rnns.'' $http : / / www . wildml . com / 2015 / 0
+9 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--124
+\OT1/ppl/m/n/8.03 recurrent-[]neural-[]networks-[]tutorial-[]part-[]1-[]introdu
+ction-[]to-[]rnns/$.
+ []
+
+) [4] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 4527 strings out of 493013
- 64143 string characters out of 6135683
- 140944 words of memory out of 5000000
- 7955 multiletter control sequences out of 15000+600000
+ 4550 strings out of 493013
+ 64621 string characters out of 6135683
+ 144000 words of memory out of 5000000
+ 7975 multiletter control sequences out of 15000+600000
  50703 words of font info for 120 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 40i,9n,31p,745b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,9n,31p,745b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/tex
@@ -749,10 +780,10 @@ ts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up
 lr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main.pdf (3 pages, 384491 bytes).
+Output written on main.pdf (4 pages, 442797 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 61 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

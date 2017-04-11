@@ -117,6 +117,52 @@ C.~J. Maddison, A.~Huang, I.~Sutskever, and D.~Silver, ``Move evaluation in go
   using deep convolutional neural networks,'' {\em arXiv preprint
   arXiv:1412.6564}, 2014.
 
+\bibitem{deep2015recurrent}
+``Recurrent neural networks tutorial, part 1 – introduction to rnns.''
+  \url{http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/}.
+\newblock Accessed: 2017-04-11.
+
+\bibitem{elman1990finding}
+J.~L. Elman, ``Finding structure in time,'' {\em Cognitive science}, vol.~14,
+  no.~2, pp.~179--211, 1990.
+
+\bibitem{elman1991distributed}
+J.~L. Elman, ``Distributed representations, simple recurrent networks, and
+  grammatical structure,'' {\em Machine learning}, vol.~7, no.~2-3,
+  pp.~195--225, 1991.
+
+\bibitem{jordan1997serial}
+M.~I. Jordan, ``Serial order: A parallel distributed processing approach,''
+  {\em Advances in psychology}, vol.~121, pp.~471--495, 1997.
+
+\bibitem{kalman1960new}
+R.~E. Kalman {\em et~al.}, ``A new approach to linear filtering and prediction
+  problems,'' {\em Journal of basic Engineering}, vol.~82, no.~1, pp.~35--45,
+  1960.
+
+\bibitem{williams1989learning}
+R.~J. Williams and D.~Zipser, ``A learning algorithm for continually running
+  fully recurrent neural networks,'' {\em Neural computation}, vol.~1, no.~2,
+  pp.~270--280, 1989.
+
+\bibitem{hochreiter1997long}
+S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' {\em Neural
+  computation}, vol.~9, no.~8, pp.~1735--1780, 1997.
+
+\bibitem{graves2009offline}
+A.~Graves and J.~Schmidhuber, ``Offline handwriting recognition with
+  multidimensional recurrent neural networks,'' in {\em Advances in neural
+  information processing systems}, pp.~545--552, 2009.
+
+\bibitem{prasad2014deep}
+S.~C. Prasad and P.~Prasad, ``Deep recurrent neural networks for time series
+  prediction,'' {\em arXiv preprint arXiv:1407.5949}, 2014.
+
+\bibitem{lee2015high}
+J.~Lee and I.~Tashev, ``High-level feature representation using recurrent
+  neural network for speech emotion recognition,'' in {\em Interspeech 2015},
+  ISCA - International Speech Communication Association, September 2015.
+
 \bibitem{hira2015review}
 Z.~M. Hira and D.~F. Gillies, ``A review of feature selection and feature
   extraction methods applied on microarray data,'' {\em Advances in
