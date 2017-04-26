@@ -33,7 +33,11 @@
 
 \IEEEtitleabstractindextext{
 \begin{abstract}
-	Lol, the abstract
+Data representation plays a crucial role in the overall performance of machine learning algorithms, since successfully implementing learning algorithms that work in some (typically high-dimensional) input spaces is far from being an easy task. Therefore, machine learning algorithms must learn and apply proper techniques to reduce the dimensionality of their input spaces.
+
+Dimensionality reduction is composed by two major classes of methods: On the one side there are Feature Extraction methods, which propose a new set of features by performing transformations on a given feature set. Feature Extraction algorithms can further be classified as either linear or nonlinear, depending on the nature of the performed transformations. On the other side, Feature Selection methods (ideally) select the best subset of features a provided feature set.
+
+The current document intends to survey the literature on the application of artificial neural networks in feature extraction tasks, providing a summarised overview of this research topic.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -50,17 +54,15 @@
 
 \IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
 
-\IEEEPARstart{I}{ntro}
+\IEEEPARstart{M}{achine} Learning (ML) can shortly be defined as a sub-field of computer science which allows a computer to learn a given task without being explicitly programmed to do such task. Since computers are not directly told how to solve a given task, ML approaches aim to learn the task to be solved by collecting and analysing high volumes of data on this task. Most popular ML tasks involve performing some sort of classification or categorisation of collected data, or making predictions based on historical collected information.
 
-Fazer intro curta
+In such tasks choosing the right representation for the collected information is of extreme importance and highly conditions the computer's ability to learn the desired task. Indeed, \emph{real-life} data tends to be very high-dimensional, where most learning algorithms tend to perform poorly.
 
-Dizer que foco na utilização de redes neuronais para efeitos de feature extraction (nao tanto de selection)
+As a result, proper dimensionality reduction techniques must be adopted in order to reduce the dimensionality of the input spaces. Dimensionality reduction is composed by two major classes of methods: \emph{Feature Extraction} (FE) and \emph{Feature Selection} (FS). While FE methods propose a new set of features by performing transformations on a given feature set, FS methods (ideally) select the best subset of features a provided feature set.
 
-Colocar sigla para Feature Extraction - FE
+The current document intends to cover FE techniques proposed in the literature, providing a literature review on this topic. Furthermore, only the application of Artificial Neural Networks in FE is intended to be covered. Therefore, additional referenced techniques applied for this purpose (such as Principal Components Analysis) will not be covered.
 
-4 pages
-
-Do not forget to provide an overview of the paper!
+The remainder of this document is organised as follows: Section \ref{sec:background} introduces the need to perform FE in Intelligent Systems. Section \ref{sec:anns_feature_extraction} presents the most popular and referenced techniques exploring the use of Artificial Neural Networks for FE purposes. Finally, section \ref{sec:conclusion} concludes the document.
 
 \section{Background}\label{sec:background}
 
@@ -90,8 +92,6 @@ Artificial Neural Networks (ANNs) have been extensively applied in the field of 
 Considering the simplest form of ANNs, feedforward networks, FE can be obtained in the output of each hidden layer: the application of the neurons' activation function to the layer's input produces an output that can be interpreted as a set of new features \cite{jain2000statistical}. Depending on the neurons' activation function this new set of features can be a linear or nonlinear combinations of the features in the input feature set (usually is nonlinear).
 
 In the remainder of the current section the most popular and referenced ANN architectures applied in FE tasks are intended to be covered. Such architectures include \emph{Feedforward} (namely \emph{Stacked Autoencoders}), \emph{Convolutional}, \emph{Recurrent}, \emph{Radial Basis}, \emph{Restricted Boltzmann Machines} and \emph{Self-Organising Maps}\cite{jain2000statistical, masci2011stacked, kvascev2012radial, fabius2014variational, cho2014learning, marchi2017deep}.
-
-\textbf{FIXME: Rever a lista de arquitecturas para confirmar que não me esqueci de nehuma!!}
 
 \subsection{Feedforward}
 
@@ -228,7 +228,11 @@ According to Lowe and Tipping\cite{lowe1997neuroscale}, the training process of 
 
 \section{Conclusion}\label{sec:conclusion}
 
-Lol, conclusion
+The current document presents a summarised overview of Feature Extraction methods exploring the application of Artificial Neural Networks.
+
+Of the techniques included in this document, the application of stacked autoencoders and Convolutional Neural Networks has regained popularity among the \emph{deep learning} scientific community, mostly as a result of the existent computational capabilities of today's computers and machines; Other techniques, such as Self-Organising Maps and Radial Basis Function networks do not seem to be so popular in this community at the present.
+
+Studying the available literature, additional methods can be found which are not covered in this document. Based on the researched literature the most cited and relevant methods were chosen to be covered in this document, as space and time limitations do not allow for a more extensive coverage of this area of research. Such analysis can be the subject of future work.
 
 \bibliographystyle{ieeetr}
 \bibliography{bibliography.bib}
