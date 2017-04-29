@@ -14,6 +14,8 @@ main <- function() {
   fastaFilePath <- 'data/SCOP40mini.fasta'
   
   preprocessDataset(fastaFilePath, castFilePath)
+  
+  # FIXME: Save trained models in the "models/" folder!
 }
 
 main()
