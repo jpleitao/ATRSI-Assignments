@@ -19,7 +19,6 @@ preprocessDataset <- function(fastaFilePath, castFilePath) {
 
   # Count number of individual elements in all the sequences
   indivAmino <- countIndividualAminoacides(proteinDict)
-  # FIXME: CHANGE THE WAY WE ARE SAVING THE TRAINING AND TESTING DATASETS BECAUSE OF COMPOSITION!
 
   # Generate training and testing datasets for all the families!
   generateTrainingDataSets(proteinDict, castTable, indivAmino)
@@ -135,7 +134,7 @@ generateDatasetForFamily <- function(proteinDict, castTable, indivAmino, columnN
 
     if (training) {
       # 1 -> Positive Train
-      # 3 -> Negative Train
+      # 2 -> Negative Train
       if (value == 1) {
         # Generate sample
         compositionDict <- applyCompositionToProteinSequence(proteinSequence, indivAmino)
@@ -143,18 +142,18 @@ generateDatasetForFamily <- function(proteinDict, castTable, indivAmino, columnN
 
         # Append to list of samples
         dataset[[length(dataset) + 1]] <- compositionDict
-      } else if (value == 3) {
+      } else if (value == 2) {
         # Generate sample
         compositionDict <- applyCompositionToProteinSequence(proteinSequence, indivAmino)
-        compositionDict[[labelName]] <- 0
+        compositionDict[[labelName]] <- -1
 
         # Append to list of samples
         dataset[[length(dataset) + 1]] <- compositionDict
       }
     } else {
-      # 2 -> Positive Test
+      # 3 -> Positive Test
       # 4 -> Negative Test
-      if (value == 2) {
+      if (value == 3) {
         # Generate sample
         compositionDict <- applyCompositionToProteinSequence(proteinSequence, indivAmino)
         compositionDict[[labelName]] <- 1
@@ -164,7 +163,7 @@ generateDatasetForFamily <- function(proteinDict, castTable, indivAmino, columnN
       } else if (value == 4) {
         # Generate sample
         compositionDict <- applyCompositionToProteinSequence(proteinSequence, indivAmino)
-        compositionDict[[labelName]] <- 0
+        compositionDict[[labelName]] <- -1
 
         # Append to list of samples
         dataset[[length(dataset) + 1]] <- compositionDict

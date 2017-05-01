@@ -9,13 +9,14 @@ main <- function() {
   
   # Add source to scripts
   source('code/preprocess.R')
+  source('code/dataset.R')
+  source('code/classifiers.R')
   
   castFilePath <- 'data/SCOP40mini_sequence_minidatabase_19.cast'
   fastaFilePath <- 'data/SCOP40mini.fasta'
   
-  preprocessDataset(fastaFilePath, castFilePath)
-  
-  # FIXME: Save trained models in the "models/" folder!
+  # preprocessDataset(fastaFilePath, castFilePath)
+  trainClassifiers('data/')
 }
 
 main()
