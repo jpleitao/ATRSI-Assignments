@@ -5,5 +5,8 @@
 
 loadDataset <- function(filePath) {
   dataset <- read.table(filePath, header=TRUE, sep=';')
+  
+  # Shuffle dataset
+  dataset <- dataset[sample(nrow(dataset)), ]
   return(dataset)
 }

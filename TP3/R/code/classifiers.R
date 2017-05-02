@@ -4,6 +4,7 @@
 # Assignment 3
 
 library(e1071)
+library(lasvmR)
 library(pROC)
 
 # Implementar aqui os classificadores (Funções para treino e para teste)
@@ -15,8 +16,13 @@ library(pROC)
 # Colocar aqui função principal de classificação; basicamente recebe o input dataset, tipo de classificação a fazer (SVM vs LaSVM) e caminho para o ficheiro com o modelo (ou entao recebe ja o modelo treinado mesmo o objecto)
 
 
-computeAUC <- function(model, x, y) {
-  pred <- predict(model, x)
+computeAUC <- function(model, x, y, trainSVM) {
+  if (trainSVM) {
+    pred <- predict(model, x)
+  } else {
+    pred <- lasvmPredict(x, model, verbose=FALSE)
+  }
+
   predNew <- c()
   for (i in pred) {
     predNew <- c(predNew, as.numeric(i))
@@ -26,10 +32,12 @@ computeAUC <- function(model, x, y) {
 }
 
 
-trainSVM <- function(trainDataset, modelName, testDir) {
+trainModel <- function(trainDataset, modelName, testDir, gammaValue, trainSVM) {
   # Split trainDataset into input and output
-  y <- as.factor(trainDataset[['Label']])
   x <- trainDataset[1 : length(trainDataset)-1]
+  y <- trainDataset[['Label']]
+  yFactor <- as.factor(y)
+  xMatrix <- as.matrix(x)
   
   # Count number of training examples of each class to assign weights to each class during training
   numZeros <- 0
@@ -48,72 +56,112 @@ trainSVM <- function(trainDataset, modelName, testDir) {
 
   costStart <- 10^-3
   costLimit <- 10^3
+  
+  gammaStart <- 10^-4
+  gammaEnd <- 10
 
-  print('Going to start training')
+  if (trainSVM) {
+    print('[SVM]Going to start training')
+  } else {
+    print('[LaSVM]Going to start training')
+  }
 
-  # for (currCost in seq(costStart, costLimit, 1.0)) {
-    currCost <- 100
-    currGamma <- 0.001
-    
-    # for (currGamma in seq(costStart, costLimit, 1)) {
+  currCost <- 0.01
+  currGamma <- gammaValue
+  
+
+  for (currCost in seq(costStart, costLimit, 0.5)) {
+    for (currGamma in seq(gammaStart, gammaEnd, 0.0001)) {
+      print(paste('[', currCost, ' ', currGamma, ' ] Limits = [', costLimit, ' ', gammaEnd, '] Best AUC = ',
+                  bestTestAuc, sep=''))
 
       # Train
-      model <- svm(x, y, kernel='radial', cost=currCost, gamma=currGamma)
+      if (trainSVM) {
+        model <- svm(x, yFactor, kernel='radial', cost=currCost, gamma=currGamma)
+      } else {
+        model <- lasvmTrain(xMatrix, y, kernel=2, cost=currCost, gamma=currGamma, verbose=FALSE)
+      }
 
       # AUC in training
-      aucTrain <- computeAUC(model, x, y)
+      aucTrain <- computeAUC(model, xMatrix, yFactor, trainSVM)
 
       # Load test dataset
       testFilePath <- paste(testDir, substr(modelName, 1, nchar(modelName)-4), 'est.csv', sep='')
       testDataset <- loadDataset(testFilePath)
 
-      yTest <- factor(testDataset[['Label']], levels=c(1, -1))
       xTest <- testDataset[1 : length(testDataset)-1]
+      yTest <- testDataset[['Label']]
+
+      if (trainSVM) {
+        yTest <- as.factor(yTest)
+      } else {
+        xTest <- as.matrix(xTest)
+      }
 
       # AUC in test
-      aucTest <- computeAUC(model, xTest, yTest)
+      aucTest <- computeAUC(model, xTest, yTest, trainSVM)
 
       if (aucTest > bestTestAuc) {
         bestTestAuc <- aucTest
         bestModelAucTrain <- aucTrain
         bestModel <- model
       }
-
-      print(paste('Currently at ', currCost, ' limit is ', costLimit, ' best auc= ', bestTestAuc, ' currAUC=', aucTest, sep=''))
-    #}
-  # }
+    }
+  }
 
   print(paste('Best Model recorded an AUC of ', bestModelAucTrain, ' in the train dataset and an AUC of ',
               aucTest, ' in the test dataset', sep=''))
-  print(bestModel)
-
-  print(bestModel$nu)
+  # print(bestModel)
 
   # Save model
   save(bestModel, file=paste('models/', modelName, '.rda', sep=''))
 }
 
-
-testSVM <- function(model, testFilePath) {
-  # Load test dataset
-  dataset <- loadDataset(testFilePath)
-  
-  # Split dataset into input and output
-  y <- factor(dataset[['Label']], levels=c(1, 0))
-  x <- dataset[1 : length(dataset)-1]
-  
-  pred <- predict(model, x)
-  predNew <- c()
-  for (i in pred) {
-    predNew <- c(predNew, as.numeric(i))
-  }
-  print(predNew)
-  
-  # Compute AUC for this test
-  aucValue <- auc(y, predNew)
-  print(aucValue)
+euclideanDistance <- function(vector1, vector2) {
+  return( sqrt(sum( (vector1 - vector2)^2 )) )
 }
 
+computeSmallerDistanceToNegative <- function(trainDataset, index) {
+  nrows <- nrow(trainDataset)
+  ncols <- ncol(trainDataset)
+  
+  currSample <- trainDataset[index, 1:ncols]
+  smallerDistance <- NULL
+  
+  for(i in 1:nrows) {
+    if (i == index) {
+      next
+    } else if (trainDataset[i, ncols] == -1) {
+      dist <- euclideanDistance(currSample[1:ncols-1], trainDataset[i, 1:ncols-1])
+      
+      if (is.null(smallerDistance)) {
+        smallerDistance <- dist
+      } else if (dist < smallerDistance) {
+        smallerdistance <- dist
+      }
+    }
+  }
+  return(smallerDistance)
+}
+
+
+computeGammaValue <- function(trainDataset) {
+  nrows <- nrow(trainDataset)
+  ncols <- ncol(trainDataset)
+  
+  distancesList <- c()
+  
+  for (i in 1:nrows) {
+    currSample <- trainDataset[i, 1:ncols]
+    
+    if (currSample[ncols] == 1) {
+      smallerDistance <- computeSmallerDistanceToNegative(trainDataset, i)
+      
+      distancesList <- c(distancesList, smallerDistance)
+    }
+  }
+  return(median(distancesList))
+}
 
 trainClassifiers <- function(dataDir) {
   # List contents of training dir
@@ -134,13 +182,16 @@ trainClassifiers <- function(dataDir) {
       # Only train for .csv file
       trainDataset <- loadDataset(paste(trainDir, fileName, sep=''))
       
+      gammaValue <- computeGammaValue(trainDataset)
+      
       # Build and train an SVM
       trainFileName <- substr(fileName, 1, nchar(fileName)-4)  # Remove extension
-      trainSVM(trainDataset, trainFileName, testDir)
-      
-      return()
+      # trainModel(trainDataset, trainFileName, testDir, gammaValue, TRUE)
       
       # Build and train LaSVM
+      trainModel(trainDataset, trainFileName, testDir, gammaValue, FALSE)
+
+      return()
     }
   }
 }
