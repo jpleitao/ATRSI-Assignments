@@ -32,7 +32,7 @@ computeAUC <- function(model, x, y, trainSVM) {
 }
 
 
-trainModel <- function(trainDataset, modelName, testDir, gammaValue, trainSVM) {
+trainModel <- function(trainDataset, modelName, testDir, resultsDir, gammaValue, trainSVM) {
   # Split trainDataset into input and output
   x <- trainDataset[1 : length(trainDataset)-1]
   y <- trainDataset[['Label']]
@@ -58,23 +58,19 @@ trainModel <- function(trainDataset, modelName, testDir, gammaValue, trainSVM) {
   costLimit <- 10^3
   
   gammaStart <- 10^-4
-  gammaEnd <- 10
+  gammaEnd <- 10^4
 
   if (trainSVM) {
     print('[SVM]Going to start training')
   } else {
     print('[LaSVM]Going to start training')
   }
-
-  currCost <- 0.01
-  currGamma <- gammaValue
   
+  resultsMatrix <- matrix(c('Cost', 'Gamma', 'AUC Train', 'AUC Test'), ncol=4)
 
   for (currCost in seq(costStart, costLimit, 0.5)) {
+    print(paste('currCost = ', currCost ,'Limit = ', costLimit, 'Best AUC = ', bestTestAuc, sep=''))
     for (currGamma in seq(gammaStart, gammaEnd, 0.0001)) {
-      print(paste('[', currCost, ' ', currGamma, ' ] Limits = [', costLimit, ' ', gammaEnd, '] Best AUC = ',
-                  bestTestAuc, sep=''))
-
       # Train
       if (trainSVM) {
         model <- svm(x, yFactor, kernel='radial', cost=currCost, gamma=currGamma)
@@ -106,6 +102,7 @@ trainModel <- function(trainDataset, modelName, testDir, gammaValue, trainSVM) {
         bestModelAucTrain <- aucTrain
         bestModel <- model
       }
+      resultsMatrix <- rbind(resultsMatrix, matrix(c(currCost, currGamma, aucTrain, aucTest), ncol=4))
     }
   }
 
@@ -113,8 +110,22 @@ trainModel <- function(trainDataset, modelName, testDir, gammaValue, trainSVM) {
               aucTest, ' in the test dataset', sep=''))
   # print(bestModel)
 
-  # Save model
-  save(bestModel, file=paste('models/', modelName, '.rda', sep=''))
+  # Save best model to R data file
+  if (trainSVM) {
+    modelFilePath <- paste('models/SVM/', modelName, '.rda', sep='')
+  } else {
+    modelFilePath <- paste('models/LaSVM/', modelName, '.rda', sep='')
+  }
+  save(bestModel, file=modelFilePath)
+  
+  # Save experiments data
+  if (trainSVM) {
+    filePath <- paste(resultsDir, '/', modelName, '_SVM.csv', sep='')
+  } else {
+    filePath <- paste(resultsDir, '/', modelName, '_LaSVM.csv', sep='')
+  }
+  write.table(resultsMatrix, file=filePath, quote=FALSE, sep=';', row.names=FALSE,
+              col.names=FALSE)
 }
 
 euclideanDistance <- function(vector1, vector2) {
@@ -168,6 +179,7 @@ trainClassifiers <- function(dataDir) {
   trainDir <- 'data/train/'
   testDir <- 'data/test/'
   modelsDir <- 'models/'
+  resultsDir <- 'data/results/'
   trainDirContents <- list.files(trainDir)
   
   # For each file in the dir train a classifier
@@ -186,10 +198,10 @@ trainClassifiers <- function(dataDir) {
       
       # Build and train an SVM
       trainFileName <- substr(fileName, 1, nchar(fileName)-4)  # Remove extension
-      # trainModel(trainDataset, trainFileName, testDir, gammaValue, TRUE)
+      trainModel(trainDataset, trainFileName, testDir, resultsDir, gammaValue, TRUE)
       
       # Build and train LaSVM
-      trainModel(trainDataset, trainFileName, testDir, gammaValue, FALSE)
+      trainModel(trainDataset, trainFileName, testDir, resultsDir, gammaValue, FALSE)
 
       return()
     }

@@ -4,13 +4,6 @@
 # Assignment 3
 
 preprocessDataset <- function(fastaFilePath, castFilePath) {
-  # 
-  #
-  # Args:
-  #   fastaFilePath: The path to the .fasta file, containing the correspondence between the family and the DNA sequences
-  #   castFilePath: The path to the .cast file, where the association between the families is stored, for both the
-  #                 training and testing datasets
-  
   # Process .fasta file and compute dicitonary of protein names and DNA sequences!
   proteinDict <- processFastaFile(fastaFilePath)
 
@@ -26,14 +19,6 @@ preprocessDataset <- function(fastaFilePath, castFilePath) {
 }
 
 processFastaFile <- function(fastaFilePath) {
-  #
-  # 
-  # Args:
-  #   fastaFilePath: 
-  #
-  # Return:
-  #   proteinDict: 
-  
   # Read text file and store information in a "dictionary-like" structure where, for each protein name we have the
   # correspondent DNA sequence
   proteinDict <- c()
@@ -60,12 +45,6 @@ processFastaFile <- function(fastaFilePath) {
 }
 
 countIndividualAminoacides <- function(proteinDict) {
-  #
-  #
-  # Args:
-  #   proteinDict: 
-  #
-
   individualsList <- c()
   for (i in 1:length(names(proteinDict))) {
     currentSequence <- proteinDict[names(proteinDict)[i]]
@@ -85,13 +64,6 @@ countIndividualAminoacides <- function(proteinDict) {
 }
 
 generateTrainingDataSets <- function(proteinDict, castTable, indivAmino) {
-  #
-  # 
-  # Args:
-  #   proteinDict: 
-  #   castTable:
-  # 
-
   # Iterate over each column of castTable, that is, each family
   for (key in names(castTable)) {
     generateDatasetForFamily(proteinDict, castTable, indivAmino, key, training = TRUE)
@@ -99,13 +71,6 @@ generateTrainingDataSets <- function(proteinDict, castTable, indivAmino) {
 }
 
 generateTestingDatasets <- function(proteinDict, castTable, indivAmino) {
-  #
-  # 
-  # Args:
-  #   proteinDict: 
-  #   castTable:
-  #
-
   # Iterate over each column of castTable, that is, each family
   for (key in names(castTable)) {
     generateDatasetForFamily(proteinDict, castTable, indivAmino, key, training = FALSE)
@@ -113,15 +78,6 @@ generateTestingDatasets <- function(proteinDict, castTable, indivAmino) {
 }
 
 generateDatasetForFamily <- function(proteinDict, castTable, indivAmino, columnName, training = TRUE) {
-  #
-  # 
-  # Args:
-  #   proteinDict: 
-  #   castTable:
-  #   columnName:
-  #   training: 
-  #
-  
   dataset <- list()
   rowNames <- row.names(castTable)
   currentList <- castTable[[columnName]]
@@ -197,12 +153,6 @@ generateDatasetForFamily <- function(proteinDict, castTable, indivAmino, columnN
 }
 
 applyCompositionToProteinSequence <- function(proteinSequence, indivAmino) {
-  #
-  # 
-  # Args:
-  #   proteinSequence: 
-  #
-
   # Initialize dictionary for the protein (to count the number of occurrences of each character)
   proteinCompositionDict <- list()
   for (i in 1:length(indivAmino)) {
