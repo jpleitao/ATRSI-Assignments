@@ -69,7 +69,6 @@ trainModel <- function(trainDataset, modelName, testDir, resultsDir, gammaValue,
   resultsMatrix <- matrix(c('Cost', 'Gamma', 'AUC Train', 'AUC Test'), ncol=4)
 
   for (currCost in seq(costStart, costLimit, 0.5)) {
-    print(paste('currCost = ', currCost ,'Limit = ', costLimit, 'Best AUC = ', bestTestAuc, sep=''))
     for (currGamma in seq(gammaStart, gammaEnd, 0.0001)) {
       # Train
       if (trainSVM) {
@@ -107,7 +106,7 @@ trainModel <- function(trainDataset, modelName, testDir, resultsDir, gammaValue,
   }
 
   print(paste('Best Model recorded an AUC of ', bestModelAucTrain, ' in the train dataset and an AUC of ',
-              aucTest, ' in the test dataset', sep=''))
+              bestTestAuc, ' in the test dataset', sep=''))
   # print(bestModel)
 
   # Save best model to R data file
@@ -185,8 +184,6 @@ trainClassifiers <- function(dataDir) {
   # For each file in the dir train a classifier
   for (i in 1:length(trainDirContents)) {
     fileName <- trainDirContents[i]
-
-    fileName <- trainDirContents[length(trainDirContents)]
     
     print(paste('Training model for ', fileName, sep=''))
     
@@ -202,8 +199,6 @@ trainClassifiers <- function(dataDir) {
       
       # Build and train LaSVM
       trainModel(trainDataset, trainFileName, testDir, resultsDir, gammaValue, FALSE)
-
-      return()
     }
   }
 }
