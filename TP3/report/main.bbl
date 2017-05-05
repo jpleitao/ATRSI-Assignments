@@ -1,8 +1,36 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Leslie et~al.(2002)Leslie, Eskin, Weston, and
+  Noble]{leslie2002mismatch}
+Christina Leslie, Eleazar Eskin, Jason Weston, and William~Stafford Noble.
+\newblock Mismatch string kernels for svm protein classification.
+\newblock In \emph{NIPS}, volume~15, pages 1441--1448, 2002.
+
+\bibitem[Zavaljevski et~al.(2002)Zavaljevski, Stevens, and
+  Reifman]{zavaljevski2002support}
+Nela Zavaljevski, Fred~J Stevens, and Jaques Reifman.
+\newblock Support vector machines with selective kernel scaling for protein
+  classification and identification of key amino acid positions.
+\newblock \emph{Bioinformatics}, 18\penalty0 (5):\penalty0 689--696, 2002.
+
+\bibitem[Cai et~al.(2003)Cai, Han, Ji, Chen, and Chen]{cai2003svm}
+CZ~Cai, LY~Han, Zhi~Liang Ji, X~Chen, and Yu~Zong Chen.
+\newblock Svm-prot: web-based support vector machine software for functional
+  classification of a protein from its primary sequence.
+\newblock \emph{Nucleic acids research}, 31\penalty0 (13):\penalty0 3692--3697,
+  2003.
+
+\bibitem[Murzin et~al.(1995)Murzin, Brenner, Hubbard, and
+  Chothia]{murzin1995scop}
+Alexey~G Murzin, Steven~E Brenner, Tim Hubbard, and Cyrus Chothia.
+\newblock Scop: a structural classification of proteins database for the
+  investigation of sequences and structures.
+\newblock \emph{Journal of molecular biology}, 247\penalty0 (4):\penalty0
+  536--540, 1995.
 
 \end{thebibliography}
