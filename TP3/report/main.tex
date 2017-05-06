@@ -95,6 +95,7 @@ This work will feature data from the \emph{SCOP Database}\cite{murzin1995scop}, 
 The current assignment also featured a secondary objective, consisting in comparing incremental with non-incremental classifier approaches. 
 
 \subsection{Methodology}
+\label{methodology}
 
 In light of the description of the assignment at hand, and its objectives, the following steps will be considered in the work to be performed:
 
@@ -139,13 +140,45 @@ The \emph{SCOP40} dataset contains information concerning the genetic coding seq
 \section{Data Representation}
 \label{data_representation}
 
-segmentation - This technique consists in, for each protein sequence, count the number of occurrences of each individual nucleotide (that is, count the number of occurrences of each letter in the sequence).
+Referenced in subsection \ref{methodology}, the representation technique implemented in the current work was the \emph{segmentation} method. In short, this method consists in, for each protein sequence, count the number of occurrences of each individual nucleotide (that is, of each letter in the sequence).
+
+For example, consider the following example protein sequence: \emph{"vdaeavvqqkcis"}. The segmentation method would output a total number of 3 occurrences for the \emph{"v"} nucleotide, 1 occurrence for the \emph{"d"} nucleotide, and so on. The only exception is for \emph{"x"} nucleotides, which represent missing information about a nucleotide in the protein sequence, and therefore are discarded in this exercise. Figure \ref{representation_example} presents an example of the output of this method for a protein sequence. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.7]{images/representation.png}
+	\caption{Example of the implemented segmentation representation for a protein sequence.}
+	\label{representation_example}
+\end{figure}
+
+As it is not mandatory that each protein sequence contains all possible individual nucleotides, this method requires an initial passage for all the sequences in the dataset, in order to identify all individual nucleotides. The method's output will, therefore, present the number of occurrences of each of those nucleotides in the current protein sequence being analysed.
 
 \section{Support Vector Machines}
 \label{svm}
 
+\emph{Support Vector Machines} (SVM) \cite{cortes1995support} are supervised machine learning algorithms applied in classification and regression tasks. During SVM training a model is built using a set of labelled samples (which can belong to one of two possible classes). Such model can then be used to classify new samples, that is, assign a new sample to a previously defined and learned class.
+
+During training an hyperplane that assures the largest separation between instances of both classes is sought. The data points that lie closest to the hyperplane are called \emph{support vectors} and determine the separation margin between the two classes. Because of their (usually) small distance to the separation hyperplane these are the most difficult data points to classify. Misclassification of some instances may or may not be allowed. Such behaviour is controlled by a \emph{cost} parameter $C$ that penalises misclassification.
+
+Even though SVMs seek a linear hyperplane, and therefore perform a linear classification task, they have also been extensively applied in non-linear classification problems. When performing non-linear classification, SVMs need to map the samples into a higher dimensional space, where a linear separation hyperplane can be computed. Once such a hyperplane has been determined an inverse transformation can be performed, mapping the data back to the original space. Such mapping operation is defined as a \emph{kernel}. For this reason, and since most \emph{application} problems are non-linear, SVMs are considered \emph{kernel methods}.
+
+Several high-dimensional mappings, or \emph{kernels}, have been proposed in the literature for SVMs, though typical kernels covered in SVM books include: \emph{linear}, \emph{polynomial}, \emph{sigmoid} and \emph{radial basis function} (RBF).
+
+In the current work, SVMs featuring a RBF kernel are intended to be applied. RBF kernels are defined by the following mathematical expression: $exp(- \gamma * |x_{i}-x_{j}|^2) $. Therefore, SVM training and classification performance will be influenced by the values defined for the cost and RBF parameters: $C$ and $\gamma$, respectively.
+
+As no prior knowledge of adequate values for these parameters has been obtained, optimal values must be searched. As suggested by Hsu \emph{et al.} \cite{hsu2003practical}, a good practice to tune these parameters is to perform a grid search with exponentially growing sequences of $C$ and $\gamma$ (for example $C \: = \: 2^{-5}, 2^{-4}, \cdots , 2^{5}$ and $\gamma \: = \: 2^{-15}, 2^{-14}, \cdots , 2^{3}$).
+
+As mentioned in \ref{methodology}, all algorithms used throughout the work were implemented in the \emph{R} software environment. With respect to SVMs, the \emph{e1071}\footnote{\url{https://CRAN.R-project.org/package=e1071}} package was used, providing an interface in the R programming language for the popular SVM library, \emph{LIBSVM} \cite{CC01a}.
+
+\textbf{FIXME: Apresentar aqui os resultados! No fundo dizer quais foram as combinações de parâmetros que testámos e quais é que nos deram os melhores resultados para cada família; Apresentar valor médio de AUC das melhores abordagens nas 55 famílias}
+
 \section{LASVM}
 \label{lasvm}
+
+\textbf{FIXME: Explicação teórica + referência biblioteca, etc}
+
+
+\textbf{FIXME: Apresentar aqui os resultados! No fundo dizer quais foram as combinações de parâmetros que testámos e quais é que nos deram os melhores resultados para cada família}
 
 \section{Conclusions}
 \label{conclusions}

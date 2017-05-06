@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -32,5 +32,22 @@ Alexey~G Murzin, Steven~E Brenner, Tim Hubbard, and Cyrus Chothia.
   investigation of sequences and structures.
 \newblock \emph{Journal of molecular biology}, 247\penalty0 (4):\penalty0
   536--540, 1995.
+
+\bibitem[Cortes and Vapnik(1995)]{cortes1995support}
+Corinna Cortes and Vladimir Vapnik.
+\newblock Support-vector networks.
+\newblock \emph{Machine learning}, 20\penalty0 (3):\penalty0 273--297, 1995.
+
+\bibitem[Hsu et~al.(2003)Hsu, Chang, Lin, et~al.]{hsu2003practical}
+Chih-Wei Hsu, Chih-Chung Chang, Chih-Jen Lin, et~al.
+\newblock A practical guide to support vector classification.
+\newblock 2003.
+
+\bibitem[Chang and Lin(2011)]{CC01a}
+Chih-Chung Chang and Chih-Jen Lin.
+\newblock {LIBSVM}: A library for support vector machines.
+\newblock \emph{ACM Transactions on Intelligent Systems and Technology},
+  2:\penalty0 27:1--27:27, 2011.
+\newblock Software available at \url{http://www.csie.ntu.edu.tw/~cjlin/libsvm}.
 
 \end{thebibliography}
