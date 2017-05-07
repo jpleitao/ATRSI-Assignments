@@ -16,8 +16,8 @@ main <- function() {
   castFilePath <- 'data/SCOP40mini_sequence_minidatabase_19.cast'
   fastaFilePath <- 'data/SCOP40mini.fasta'
   
-  # preprocessDataset(fastaFilePath, castFilePath)
-  # trainClassifiers('data/')
+  preprocessDataset(fastaFilePath, castFilePath)
+  trainClassifiers('data/')
   postProcess('data/results/')
 }
 
