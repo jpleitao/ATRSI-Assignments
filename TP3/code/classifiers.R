@@ -7,15 +7,6 @@ library(e1071)
 library(lasvmR)
 library(pROC)
 
-# Implementar aqui os classificadores (Funções para treino e para teste)
-
-# No caso das SVMs ver como definir linear e nao linear (e já agora também na LaSVM) - Para as SVMs usar LIBSVM
-
-# FIXME: Save trained models in the "models/" folder!
-
-# Colocar aqui função principal de classificação; basicamente recebe o input dataset, tipo de classificação a fazer (SVM vs LaSVM) e caminho para o ficheiro com o modelo (ou entao recebe ja o modelo treinado mesmo o objecto)
-
-
 computeAUC <- function(model, x, y, trainSVM) {
   if (trainSVM) {
     pred <- predict(model, x)
@@ -123,8 +114,7 @@ trainModel <- function(trainDataset, modelName, testDir, resultsDir, gammaValue,
   } else {
     filePath <- paste(resultsDir, '/', modelName, '_LaSVM.csv', sep='')
   }
-  write.table(resultsMatrix, file=filePath, quote=FALSE, sep=';', row.names=FALSE,
-              col.names=FALSE)
+  write.table(resultsMatrix, file=filePath, quote=FALSE, sep=';', row.names=FALSE, col.names=FALSE)
 }
 
 euclideanDistance <- function(vector1, vector2) {

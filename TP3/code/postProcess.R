@@ -15,6 +15,29 @@ averageAUCTest <- function(bestClassifiers) {
   return(sum / length(classNames))
 }
 
+saveBestClassifiers <- function(bestClassifiers, classifierName) {
+  fileContents <- matrix(c('Family', 'Cost', 'Gamma', 'AUC Train', 'AUC Test'), ncol=5)
+  bestClassifiersNames <- names(bestClassifiers)
+  
+  # Go through the best results for the given classifier and append the values in 'fileContents'
+  for (i in 1:length(bestClassifiersNames)) {
+    currentName <- bestClassifiersNames[i]
+    currentResults <- bestClassifiers[[currentName]]
+    
+    currentLine <- c(currentName)
+    
+    for(j in 1:length(currentResults)) {
+      currentLine <- c(currentLine, currentResults[[j]])
+    }
+    
+    fileContents <- rbind(fileContents, matrix(currentLine, ncol=5))
+  }
+  
+  # Save to file
+  filePath <- paste('data/results/', classifierName, '_BEST_RESULTS.csv', sep='')
+  write.table(fileContents, file=filePath, quote=FALSE, sep=';', row.names=FALSE, col.names=FALSE)
+}
+
 getBestParametersForFamily <- function(resultsFilePath) {
   # Read data from file
   fileData <- read.table(resultsFilePath, header=TRUE, sep=';')
@@ -65,11 +88,13 @@ postProcess <- function(resultsDir) {
     # Get best results for the given approach, for the different families
     bestClassifiers <- getBestClassifiersForApproach(classifier, resultsDir)
     
+    # Save best classifiers to csv file
+    saveBestClassifiers(bestClassifiers, classifier)
+    
     # Compute average AUC on test data for the best approaches previously identifies
     averageTestAUC <- averageAUCTest(bestClassifiers)
     
     print(paste('Average AUC in test data for ', classifier, ' = ' , averageTestAUC, sep=''))
   }
-  
 }
   
