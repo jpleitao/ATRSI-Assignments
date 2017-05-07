@@ -8,3 +8,4 @@
 \contentsline {section}{\numberline {4}Support Vector Machines}{4}{section.4}
 \contentsline {section}{\numberline {5}LASVM}{7}{section.5}
 \contentsline {section}{\numberline {6}Conclusions}{9}{section.6}
+\contentsfinish 
