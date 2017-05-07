@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -49,5 +49,14 @@ Chih-Chung Chang and Chih-Jen Lin.
 \newblock \emph{ACM Transactions on Intelligent Systems and Technology},
   2:\penalty0 27:1--27:27, 2011.
 \newblock Software available at \url{http://www.csie.ntu.edu.tw/~cjlin/libsvm}.
+
+\bibitem[Bordes et~al.(2005)Bordes, Ertekin, Weston, and
+  Bottou]{bordes-ertekin-weston-bottou-2005}
+Antoine Bordes, Seyda Ertekin, Jason Weston, and L\'{e}on Bottou.
+\newblock Fast kernel classifiers with online and active learning.
+\newblock \emph{Journal of Machine Learning Research}, 6:\penalty0 1579--1619,
+  September 2005.
+\newblock URL
+  \url{http://leon.bottou.org/papers/bordes-ertekin-weston-bottou-2005}.
 
 \end{thebibliography}

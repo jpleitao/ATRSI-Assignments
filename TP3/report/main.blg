@@ -4,45 +4,45 @@ The top-level auxiliary file: main.aux
 The style file: unsrtnat.bst
 Database file #1: bibliography.bib
 Warning--empty journal in hsu2003practical
-You've used 7 entries,
+You've used 8 entries,
             2481 wiz_defined-function locations,
-            600 strings with 5795 characters,
-and the built_in function-call counts, 3126 in all, are:
-= -- 266
-> -- 165
+            608 strings with 6069 characters,
+and the built_in function-call counts, 3583 in all, are:
+= -- 304
+> -- 192
 < -- 4
-+ -- 62
-- -- 48
-* -- 258
-:= -- 490
-add.period$ -- 22
-call.type$ -- 7
-change.case$ -- 14
-chr.to.int$ -- 7
-cite$ -- 8
-duplicate$ -- 146
-empty$ -- 277
-format.name$ -- 59
-if$ -- 658
++ -- 72
+- -- 56
+* -- 301
+:= -- 565
+add.period$ -- 26
+call.type$ -- 8
+change.case$ -- 16
+chr.to.int$ -- 8
+cite$ -- 9
+duplicate$ -- 165
+empty$ -- 316
+format.name$ -- 68
+if$ -- 754
 int.to.chr$ -- 1
-int.to.str$ -- 8
-missing$ -- 7
-newline$ -- 44
-num.names$ -- 21
-pop$ -- 56
+int.to.str$ -- 9
+missing$ -- 8
+newline$ -- 50
+num.names$ -- 24
+pop$ -- 62
 preamble$ -- 1
-purify$ -- 7
+purify$ -- 8
 quote$ -- 0
-skip$ -- 92
+skip$ -- 101
 stack$ -- 0
-substring$ -- 194
-swap$ -- 26
+substring$ -- 223
+swap$ -- 29
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 49
+type$ -- 56
 warning$ -- 1
-while$ -- 27
+while$ -- 30
 width$ -- 0
-write$ -- 99
+write$ -- 114
 (There was 1 warning)

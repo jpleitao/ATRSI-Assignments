@@ -6,5 +6,5 @@
 \contentsline {section}{\numberline {2}Dataset Description}{3}{section.2}
 \contentsline {section}{\numberline {3}Data Representation}{4}{section.3}
 \contentsline {section}{\numberline {4}Support Vector Machines}{4}{section.4}
-\contentsline {section}{\numberline {5}LASVM}{5}{section.5}
-\contentsline {section}{\numberline {6}Conclusions}{5}{section.6}
+\contentsline {section}{\numberline {5}LASVM}{7}{section.5}
+\contentsline {section}{\numberline {6}Conclusions}{9}{section.6}

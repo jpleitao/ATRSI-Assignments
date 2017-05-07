@@ -117,7 +117,7 @@ Following the representation classifiers needed to be properly trained and teste
 
 As each protein sequence under analysis must be assigned to one of 55 possible families, a multi-class classification problem is being considered. In this sense one classifier for each family must be develop. Considering that two different classifiers are intended to be compared, two classifiers were trained for each family (one \emph{LASVM} and one \emph{SVM}).
 
-Finally, once the classifiers were properly created and trained, their performance was assessed with the testing dataset, following an analysis of the test results in order to determine which approach registered better results, if any. Considering the fact that the \emph{SCOP40} is an highly unbalanced dataset (indeed, a fact that is very common in problems of this nature in computational biology) the different approaches were not compared with respect to their accuracy, but with respect to the \emph{Area Under Curve} metric.
+Finally, once the classifiers were properly created and trained, their performance was assessed with the testing dataset, following an analysis of the test results in order to determine which approach registered better results, if any. Considering the fact that the \emph{SCOP40} is an highly unbalanced dataset (indeed, a fact that is very common in problems of this nature in computational biology) the different approaches were not compared with respect to their accuracy, but with respect to the \emph{Area Under Curve} (AUC) metric.
 
 Concerning the classifiers' development and all \emph{assignment-related} tasks, the \emph{R}\footnote{\url{https://www.r-project.org/}} software environment was selected as the implementation and working tool.
 
@@ -140,7 +140,7 @@ The \emph{SCOP40} dataset contains information concerning the genetic coding seq
 \section{Data Representation}
 \label{data_representation}
 
-Referenced in subsection \ref{methodology}, the representation technique implemented in the current work was the \emph{segmentation} method. In short, this method consists in, for each protein sequence, count the number of occurrences of each individual nucleotide (that is, of each letter in the sequence).
+Referenced in section \ref{methodology}, the representation technique implemented in the current work was the \emph{segmentation} method. In short, this method consists in, for each protein sequence, count the number of occurrences of each individual nucleotide (that is, of each letter in the sequence).
 
 For example, consider the following example protein sequence: \emph{"vdaeavvqqkcis"}. The segmentation method would output a total number of 3 occurrences for the \emph{"v"} nucleotide, 1 occurrence for the \emph{"d"} nucleotide, and so on. The only exception is for \emph{"x"} nucleotides, which represent missing information about a nucleotide in the protein sequence, and therefore are discarded in this exercise. Figure \ref{representation_example} presents an example of the output of this method for a protein sequence. 
 
@@ -166,22 +166,291 @@ Several high-dimensional mappings, or \emph{kernels}, have been proposed in the 
 
 In the current work, SVMs featuring a RBF kernel are intended to be applied. RBF kernels are defined by the following mathematical expression: $exp(- \gamma * |x_{i}-x_{j}|^2) $. Therefore, SVM training and classification performance will be influenced by the values defined for the cost and RBF parameters: $C$ and $\gamma$, respectively.
 
-As no prior knowledge of adequate values for these parameters has been obtained, optimal values must be searched. As suggested by Hsu \emph{et al.} \cite{hsu2003practical}, a good practice to tune these parameters is to perform a grid search with exponentially growing sequences of $C$ and $\gamma$ (for example $C \: = \: 2^{-5}, 2^{-4}, \cdots , 2^{5}$ and $\gamma \: = \: 2^{-15}, 2^{-14}, \cdots , 2^{3}$).
+Considering that no prior knowledge of adequate values for these parameters has been obtained, optimal values must be searched. As suggested by Hsu \emph{et al.} \cite{hsu2003practical}, a good practice to tune these parameters is to perform a grid search with exponentially growing sequences of $C$ and $\gamma$ (for example $C \: = \: 2^{-5}, 2^{-4}, \cdots , 2^{5}$ and $\gamma \: = \: 2^{-15}, 2^{-14}, \cdots , 2^{3}$).
 
-As mentioned in \ref{methodology}, all algorithms used throughout the work were implemented in the \emph{R} software environment. With respect to SVMs, the \emph{e1071}\footnote{\url{https://CRAN.R-project.org/package=e1071}} package was used, providing an interface in the R programming language for the popular SVM library, \emph{LIBSVM} \cite{CC01a}.
+As mentioned in section \ref{methodology}, all algorithms used throughout the work were implemented in the \emph{R} software environment. With respect to SVMs, the \emph{e1071}\footnote{\url{https://CRAN.R-project.org/package=e1071}} package was used, providing an interface in the R programming language for the popular SVM library, \emph{LIBSVM} \cite{CC01a}.
 
-\textbf{FIXME: Apresentar aqui os resultados! No fundo dizer quais foram as combinações de parâmetros que testámos e quais é que nos deram os melhores resultados para cada família; Apresentar valor médio de AUC das melhores abordagens nas 55 famílias}
+Supported by the suggestion of Hsu \emph{et al.}, a grid search method was adopted to tune the SVM parameters in this task. As 55 different classifiers are intended to be trained (one for each family), the mentioned tuning process was repeated for each of the 55 trained classifiers. In this grid search exercise, the following ranges of values were defined:
+
+\begin{itemize}
+	\item For the cost parameter, $C$, the defined ranged included values from $10^{-3}$ up to $10^{3}$ in a logarithmic scale: $10^{-3}, 10^{-2}, \cdots , 10^{3}$
+	
+	\item For the kernel parameter, $\gamma$, the defined range included values from $10^{-4}$ up to $10^{4}$, also in a logarithmic scale: $10^{-4}, 10^{-3}, \cdots , 10^{4}$
+\end{itemize}
+
+For each combination of values $(C, \gamma)$ - and for each family - a classifier was trained and its performance was registered in both the training and test dataset, using the \emph{AUC} metric. The combination of parameters that produced the best results (higher AUC in the test dataset) for each family are presented in Table \ref{svm_results}.
+
+An average AUC of $0.74$ in the test dataset was recorded. The best results in the test dataset were recorded in family \emph{"SCOP40\_b.29.1.\_b.29.1.2."}, with an AUC of $0.99$ and an SVM with the following parameters: $C = 256$ and $\gamma = 3.9e-03$. It is also worth pointing out that, for this classifier a cost of $256$ was defined. Even though much higher cost values can be found in Table \ref{svm_results}, this still remains an high cost value, suggesting a \emph{hard-limit} SVM.
+
+Unfortunately, for some families worse results were registered: In the cases of families \emph{"SCOP40\_b.29.1.\_b.29.1.3."}, \emph{"SCOP40\_c.23.16.\_c.23.16.2."}, \emph{"SCOP40\_c.3.1.\_c.3.1.5."},\\\emph{"SCOP40\_c.68.1.\_c.68.1.13."} and \emph{"SCOP40\_d.81.1.\_d.81.1.3."} the best AUC in both the train and test dataset was $0.5$; while in the cases of families \emph{"SCOP40\_c.26.2.\_c.26.2.1."} and \emph{"SCOP40\_c.47.1.\_c.47.1.10."} clear overfitting scenarios can be identified, as to a train AUC of 1 corresponded a test AUC of about $0.5$.
+
+\begin{longtable}{|p{.33\textwidth}|p{.1\textwidth}|p{.13\textwidth}|p{.15\textwidth}|p{.15\textwidth}|}
+	\hline
+	\textbf{Family}               & \textbf{Cost} & \textbf{Gamma}   & \textbf{AUC Train} & \textbf{AUC Test} \\ \hline
+	SCOP40\_a.118.1.\_a.118.1.14. & 8192  & 1.95e-03  & 0.90  & 0.82  \\ \hline
+	
+	SCOP40\_a.3.1.\_a.3.1.1.      & 16384 & 4.8e-04   & 0.83  & 0.76  \\ \hline
+	
+	SCOP40\_a.39.1.\_a.39.1.2.    & 32    & 7.8e-03   & 0.80  & 0.75  \\ \hline
+	
+	SCOP40\_a.39.1.\_a.39.1.5.    & 32768 & 3.05e-05  & 0.69  & 0.83  \\ \hline
+	
+	SCOP40\_a.4.1.\_a.4.1.1.      & 1     & 0.125     & 0.73  & 0.87  \\ \hline
+	
+	SCOP40\_a.4.1.\_a.4.1.3.      & 1     & 1         & 0.97  & 0.90  \\ \hline
+	
+	SCOP40\_a.4.1.\_a.4.1.9.      & 128   & 0.125     & 1     & 0.71  \\ \hline
+	
+	SCOP40\_a.4.5.\_a.4.5.28.     & 16    & 0.125     & 0.96  & 0.91  \\ \hline
+	
+	SCOP40\_b.1.1.\_b.1.1.2.      & 1     & 0.125     & 0.93  & 0.98  \\ \hline
+	
+	SCOP40\_b.1.1.\_b.1.1.3.      & 16    & 0.25      & 1     & 0.92  \\ \hline
+	
+	SCOP40\_b.1.1.\_b.1.1.4.      & 32    & 0.0625    & 0.98  & 0.82  \\ \hline
+	
+	SCOP40\_b.1.18.\_b.1.18.2.    & 64    & 0.0625    & 0.97  & 0.74  \\ \hline
+	
+	SCOP40\_b.29.1.\_b.29.1.11.   & 8     & 0.0156    & 0.72  & 0.90  \\ \hline
+	
+	SCOP40\_b.29.1.\_b.29.1.2.    & 256   & 3.9e-03   & 0.77  & 0.99  \\ \hline
+	
+	SCOP40\_b.29.1.\_b.29.1.3.    & 0.031 & 3.05e-05 & 0.5    & 0.5   \\ \hline
+	
+	SCOP40\_b.29.1.\_b.29.1.4.    & 2     & 0.25     & 0.99   & 0.57  \\ \hline
+	
+	SCOP40\_b.40.4.\_b.40.4.3.    & 512   & 0.031    & 0.99   & 0.63  \\ \hline
+	
+	SCOP40\_b.40.4.\_b.40.4.4.    & 4     & 0.125    & 0.82   & 0.69  \\ \hline
+	
+	SCOP40\_b.40.4.\_b.40.4.5.    & 1024  & 0.031    & 1      & 0.70  \\ \hline
+	
+	SCOP40\_b.40.4.\_b.40.4.6.    & 4     & 0.125    & 0.86   & 0.70  \\ \hline
+	
+	SCOP40\_b.47.1.\_b.47.1.1.    & 4     & 0.125    & 1      & 0.65  \\ \hline
+	
+	SCOP40\_b.6.1.\_b.6.1.1.      & 1     & 0.125    & 0.72   & 0.55  \\ \hline
+	
+	SCOP40\_b.6.1.\_b.6.1.3.      & 4096  & 9.8e-04  & 0.78   & 0.63  \\ \hline
+	
+	SCOP40\_c.1.8.\_c.1.8.3.      & 8192  & 3.05e-05 & 0.88   & 0.88  \\ \hline
+	
+	SCOP40\_c.1.8.\_c.1.8.5.      & 256   & 1.95e-03 & 0.94   & 0.76  \\ \hline
+	
+	SCOP40\_c.10.2.\_c.10.2.5.    & 0.031 & 3.05e-05 & 0.5    & 0.5   \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.2.      & 4096  & 9.8e-04  & 0.83   & 0.76  \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.3.      & 32    & 0.0625   & 1.00   & 0.67  \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.4.      & 16    & 0.0625   & 0.98   & 0.86  \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.5.      & 8     & 0.125    & 0.99   & 0.80  \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.6.      & 4     & 0.125    & 0.97   & 0.78  \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.7.      & 16    & 0.031    & 0.91   & 0.81  \\ \hline
+	
+	SCOP40\_c.23.16.\_c.23.16.2.  & 0.031 & 3.05e-05 & 0.5    & 0.5   \\ \hline
+	
+	SCOP40\_c.26.2.\_c.26.2.1.    & 32    & 0.031    & 1      & 0.56  \\ \hline
+	
+	SCOP40\_c.3.1.\_c.3.1.4.      & 128   & 0.016    & 0.82   & 0.58  \\ \hline
+	
+	SCOP40\_c.3.1.\_c.3.1.5.      & 0.031 & 3.05e-05 & 0.5    & 0.5   \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.10.   & 32768 & 9.8e-04  & 0.95   & 0.78  \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.11.   & 8     & 0.031    & 0.92   & 0.88  \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.12.   & 8     & 0.125    & 0.99   & 0.89  \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.19.   & 1024  & 2.4e-04  & 0.77   & 0.82  \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.20.   & 32768 & 1.9e-03  & 0.97   & 0.87  \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.5.    & 2     & 0.0625   & 0.91   & 0.67  \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.6.    & 128   & 1.9e-03  & 0.81   & 0.95  \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.8.    & 64    & 0.0625   & 1      & 0.79  \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.9.    & 1024  & 3.05e-05 & 0.67   & 0.83  \\ \hline
+	
+	SCOP40\_c.47.1.\_c.47.1.1.    & 32    & 0.0625   & 0.90   & 0.71  \\ \hline
+	
+	SCOP40\_c.47.1.\_c.47.1.10.   & 16    & 0.25     & 1      & 0.56  \\ \hline
+	
+	SCOP40\_c.47.1.\_c.47.1.2.    & 512   & 0.0625   & 1      & 0.72  \\ \hline
+	
+	SCOP40\_c.47.1.\_c.47.1.5.    & 32    & 0.0625   & 0.93   & 0.55  \\ \hline
+	
+	SCOP40\_c.55.1.\_c.55.1.1.    & 128   & 0.031    & 1      & 0.67  \\ \hline
+	
+	SCOP40\_c.67.1.\_c.67.1.3.    & 2     & 0.0625   & 1      & 0.87  \\ \hline
+	
+	SCOP40\_c.67.1.\_c.67.1.4.    & 2     & 0.0312   & 0.97   & 0.96  \\ \hline
+	
+	SCOP40\_c.68.1.\_c.68.1.13.   & 0.031 & 3.05e-05 & 0.5    & 0.5   \\ \hline
+	
+	SCOP40\_d.81.1.\_d.81.1.3.    & 0.031 & 3.05e-05 & 0.5    & 0.5   \\ \hline
+	
+	SCOP40\_e.8.1.\_e.8.1.1.      & 2     & 0.031    & 0.83   & 0.6   \\ \hline
+	\caption{SVM configurations that produced the best results in the training dataset.}
+	\label{svm_results}
+\end{longtable}
 
 \section{LASVM}
 \label{lasvm}
 
-\textbf{FIXME: Explicação teórica + referência biblioteca, etc}
+The application of Support Vector Machines (and other similar approaches) in real-life problems is strongly restricted by their dimensionality and scale. Indeed, when training examples are abundant and of high dimensionality the computational and time resources needed to train these approaches are significant.
 
+In response to such limitations incremental approaches have been proposed in the literature which, while analysing each sample individually, do not give equal attention to all of the training data. In the field of SVMs incremental techniques repeatedly train a model with a smaller training subset, keeping only the support vectors between training iterations.
 
-\textbf{FIXME: Apresentar aqui os resultados! No fundo dizer quais foram as combinações de parâmetros que testámos e quais é que nos deram os melhores resultados para cada família}
+In the scope of this work, the incremental alternative to SVMs intended to be studied is the \emph{LASVM}. In their proposal of the algorithm, Bordes \emph{et al.} \cite{bordes-ertekin-weston-bottou-2005} provided two ways of defining this algorithm: On one hand LASVM can be defined as an online version of the SVM featuring a support vector removal step; another possible view of this algorithm is related with its reorganization of the SMO sequential direction searches. More detailed information concerning this algorithm and its properties can be found in the cited literature.
+
+The authors of \cite{bordes-ertekin-weston-bottou-2005} also provided a complete implementation of their proposed algorithm\footnote{\url{http://leon.bottou.org/projects/lasvm}}. Similarly to the \emph{SVM} case, an \emph{R} package providing an interface to the \emph{LASVM} algorithm implementation was used: \emph{lasvmR}\footnote{\url{https://CRAN.R-project.org/package=lasvmR}}.
+
+Similarly to the approach presented in the previous section, and followed in the development of the non-incremental SVM classifiers, a grid search method was adopted to tune the parameters of the LASVM classifiers. As the LASVM is an online version of the SVM it features the same parameters as the SVM, with the same meaning.
+
+In this sense, the ranges defined in section \ref{svm} were also considered at this point. Additionally, the performance of the trained LASVM classifiers in both the train and test datasets was also registered, with the parameters' combinations that produced the best results (in terms of AUC in the test dataset) for each family are presented in Table \ref{lasvm_results}.
+
+Overall, classifications performed with the \emph{LASVM} produce more accurate results, supported by higher test AUC values for the majority of the families. In some families where it was not possible to learn a classifier with the SVM method, the LASVM allows for more accurate results: this is the case for the families \emph{"SCOP40\_b.29.1.\_b.29.1.3."}, \emph{"SCOP40\_c.23.16.\_c.23.16.2."}, \emph{"SCOP40\_c.3.1.\_c.3.1.5."} and \emph{"SCOP40\_c.68.1.\_c.68.1.13."}.
+
+An average AUC of $0.81$ in the test dataset was recorded using the LASVM. The best results in the test dataset were recorded in families \emph{"SCOP40\_b.29.1.\_b.29.1.11."},\\ \emph{"SCOP40\_b.29.1.\_b.29.1.2."} and \emph{"SCOP40\_c.67.1.\_c.67.1.4."} where an AUC of $0.99$ was registered. The parameters of the LASVM classifiers in these cases were: $C = 32$ and $\gamma = 1.22e-04$ for the first family; $C = 4$ and $\gamma = 9.7e-04$ for the second family; and $C = 512$ and $\gamma = 2.44e-04$ for the third family.
+
+With the exception of the third family, it can be seen that the cost parameter is clearly smaller in the LASVM case, yielding a \emph{soft-limit} classifier (or at least less \emph{hard-limit} than the SVM alternative).
+
+Like in the previous exercise, in some cases it was not possible to learn a classifier, resulting in an AUC of around $0.5$ in both the train and test datasets. This was the case for families \emph{"SCOP40\_c.10.2.\_c.10.2.5."} and \emph{"SCOP40\_d.81.1.\_d.81.1.3."}. Unlike with the SVM classifiers, the LASVM does not appear to be suffering of overfitting in any situation: indeed, whenever a high AUC in the training was registered an also higher AUC was registered in the test dataset.
+
+\begin{longtable}{|p{.33\textwidth}|p{.1\textwidth}|p{.13\textwidth}|p{.15\textwidth}|p{.15\textwidth}|}
+	\hline
+	\textbf{Family}               & \textbf{Cost} & \textbf{Gamma}   & \textbf{AUC Train} & \textbf{AUC Test} \\ \hline
+	SCOP40\_a.118.1.\_a.118.1.14. & 256     & 2.44e-04   & 0.97 & 0.91 \\ \hline
+
+	SCOP40\_a.3.1.\_a.3.1.1.      & 8192    & 2.44e-04   & 0.93 & 0.87 \\ \hline
+
+	SCOP40\_a.39.1.\_a.39.1.2.    & 512     & 6.10e-05   & 0.87 & 0.81 \\ \hline
+
+	SCOP40\_a.39.1.\_a.39.1.5.    & 1024    & 3.05e-05   & 0.76 & 0.90 \\ \hline
+
+	SCOP40\_a.4.1.\_a.4.1.1.      & 16      & 9.7e-04    & 0.88 & 0.95 \\ \hline
+
+	SCOP40\_a.4.1.\_a.4.1.3.      & 0.25    & 3.9e-03    & 0.76 & 0.90 \\ \hline
+	
+	SCOP40\_a.4.1.\_a.4.1.9.      & 8192    & 4.8e-04    & 0.98 & 0.86 \\ \hline
+	
+	SCOP40\_a.4.5.\_a.4.5.28.     & 64      & 2.4e-04    & 0.77 & 0.92 \\ \hline
+	
+	SCOP40\_b.1.1.\_b.1.1.2.      & 4       & 9.8e-04    & 0.92 & 0.98 \\ \hline
+	
+	SCOP40\_b.1.1.\_b.1.1.3.      & 32      & 3.9e-03    & 1    & 0.92 \\ \hline
+	
+	SCOP40\_b.1.1.\_b.1.1.4.      & 32768   & 1.2e-04    & 0.94 & 0.86 \\ \hline
+	
+	SCOP40\_b.1.18.\_b.1.18.2.    & 4096    & 9.8e-04    & 0.99 & 0.72 \\ \hline
+	
+	SCOP40\_b.29.1.\_b.29.1.11.   & 32      & 1.22e-04   & 0.74 & 0.99 \\ \hline
+	
+	SCOP40\_b.29.1.\_b.29.1.2.    & 4       & 9.7e-04    & 0.78 & 0.99 \\ \hline
+	
+	SCOP40\_b.29.1.\_b.29.1.3.    & 4096    & 1.22e-04   & 0.80  & 0.69 \\ \hline
+	
+	SCOP40\_b.29.1.\_b.29.1.4.    & 8192    & 1.22e-04   & 0.89  & 0.81 \\ \hline
+	
+	SCOP40\_b.40.4.\_b.40.4.3.    & 32768   & 1.22e-04   & 0.81  & 0.73 \\ \hline
+	
+	SCOP40\_b.40.4.\_b.40.4.4.    & 32768   & 4.88e-04  & 0.89  & 0.89 \\ \hline
+	
+	SCOP40\_b.40.4.\_b.40.4.5.    & 8192    & 4.88e-04  & 0.99  & 0.82 \\ \hline
+	
+	SCOP40\_b.40.4.\_b.40.4.6.    & 8192    & 9.76e-04  & 0.99  & 0.73 \\ \hline
+	
+	SCOP40\_b.47.1.\_b.47.1.1.    & 8192    & 6.10e-05  & 0.95  & 0.73 \\ \hline
+	
+	SCOP40\_b.6.1.\_b.6.1.1.      & 8192    & 6.10e-05  & 0.70  & 0.73 \\ \hline
+	
+	SCOP40\_b.6.1.\_b.6.1.3.      & 128     & 4.88e-04  & 0.94  & 0.64 \\ \hline
+	
+	SCOP40\_c.1.8.\_c.1.8.3.      & 4096    & 6.10e-05  & 0.96  & 0.93 \\ \hline
+	
+	SCOP40\_c.1.8.\_c.1.8.5.      & 8192    & 1.22e-04  & 0.99  & 0.84 \\ \hline
+	
+	SCOP40\_c.10.2.\_c.10.2.5.    & 0.03125 & 3.05e-05  & 0.5   & 0.5  \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.2.      & 4096    & 1.22e-04  & 0.96  & 0.73 \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.3.      & 2048    & 1.22e-04  & 0.89  & 0.76 \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.4.      & 128     & 2.44e-04  & 0.89  & 0.91 \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.5.      & 0.5     & 2.44e-04  & 0.82  & 0.86 \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.6.      & 2       & 9.76e-04  & 0.84  & 0.79 \\ \hline
+	
+	SCOP40\_c.2.1.\_c.2.1.7.      & 1024    & 6.10e-05  & 0.87  & 0.90 \\ \hline
+	
+	SCOP40\_c.23.16.\_c.23.16.2.  & 16384   & 1.22e-04  & 0.96  & 0.70 \\ \hline
+	
+	SCOP40\_c.26.2.\_c.26.2.1.    & 512     & 6.10e-05  & 0.95  & 0.56 \\ \hline
+	
+	SCOP40\_c.3.1.\_c.3.1.4.      & 4096    & 4.88e-04  & 0.98  & 0.96 \\ \hline
+	
+	SCOP40\_c.3.1.\_c.3.1.5.      & 8192    & 6.10e-05  & 0.69  & 0.54 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.10.   & 4096    & 3.05e-05  & 0.84  & 0.79 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.11.   & 4       & 2.44e-04  & 0.83  & 0.89 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.12.   & 1       & 2.44e-04  & 0.80  & 0.88 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.19.   & 1024    & 6.10e-05  & 0.92  & 0.84 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.20.   & 16      & 3.05e-05  & 0.70  & 0.86 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.5.    & 0.5     & 2.44e-04  & 0.80  & 0.81 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.6.    & 1       & 4.88e-04  & 0.84  & 0.95 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.8.    & 4096    & 1.22e-04  & 0.87  & 0.84 \\ \hline
+	
+	SCOP40\_c.37.1.\_c.37.1.9.    & 4       & 2.44e-04  & 0.85  & 0.81 \\ \hline
+	
+	SCOP40\_c.47.1.\_c.47.1.1.    & 1024    & 1.22e-04  & 0.87  & 0.83 \\ \hline
+	
+	SCOP40\_c.47.1.\_c.47.1.10.   & 32768   & 2.44e-04  & 0.71  & 0.67 \\ \hline
+	
+	SCOP40\_c.47.1.\_c.47.1.2.    & 8192    & 2.44e-04  & 0.82  & 0.82 \\ \hline
+	
+	SCOP40\_c.47.1.\_c.47.1.5.    & 16384   & 2.44e-04  & 0.73  & 0.70 \\ \hline
+	
+	SCOP40\_c.55.1.\_c.55.1.1.    & 1024    & 2.44e-04  & 0.99  & 0.73 \\ \hline
+	
+	SCOP40\_c.67.1.\_c.67.1.3.    & 64      & 2.44e-04  & 1     & 0.96 \\ \hline
+	
+	SCOP40\_c.67.1.\_c.67.1.4.    & 512     & 2.44e-04  & 0.99  & 0.99 \\ \hline
+	
+	SCOP40\_c.68.1.\_c.68.1.13.   & 4096    & 6.10e-05  & 0.74  & 0.74 \\ \hline
+	
+	SCOP40\_d.81.1.\_d.81.1.3.    & 32768   & 3.05e-05  & 0.53  & 0.52 \\ \hline
+	
+	SCOP40\_e.8.1.\_e.8.1.1.      & 256     & 3.05e-05  & 0.87  & 0.80  \\ \hline
+	\caption{LASVM configurations that produced the best results in the training dataset.}
+	\label{lasvm_results}
+\end{longtable}
 
 \section{Conclusions}
 \label{conclusions}
+
+Comparar valores obtidos com os do site; Justificar com a representação, que é pouco poderosa (simplesmente contar o número de ocorrências de cada nucleótido descarta muita informação, nomeadamente informação sequencial de nucleotidos, que é fundamental para determinar que aminoácidos estão a ser sintetisados e, consequentemente, determinar a função da proteína)
+
+Referência também ao facto de termos um dataset altamente nao balanceado, o que dificulta mais a tarefa do classificador porque temos poucos exemplos de uma classe (neste caso das classes positivas)
+
+Em alguns casos temos AUC de 1 (ou muito próximo) no treino e depois conseguimos AUC a volta de 0.9 no teste, o que é bastante bom. Curiosamente, para ambos os classificadores, aos melhores resultados de AUC no teste corresponderam valores de AUC no treino mais inferiores (rondando os 0.7-0.8)
+
+LASVM não parece sofrer de overfitting - Pode estar relacionado com o seu modo de treino? Pesquisar na net!!!
+
+\textbf{FIXME: Não esquecer que não posso passar das 10 páginas de texto!!!}
 
 \bibliographystyle{unsrtnat}
 \bibliography{bibliography}
