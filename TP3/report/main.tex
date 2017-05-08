@@ -105,7 +105,7 @@ The current assignment also featured a secondary objective, consisting in compar
 In light of the description of the assignment at hand, and its objectives, the following steps will be considered in the work to be performed:
 
 \begin{enumerate}
-	\item Initial dataset preprocessing
+	\item Initial dataset pre-processing
 	
 	\item Data representation
 	
@@ -114,9 +114,9 @@ In light of the description of the assignment at hand, and its objectives, the f
 	\item Results assessment
 \end{enumerate}
 
-In an initial stage, a preprocessing of the \emph{SCOP40} data was conducted, aiming to construct a training and testing dataset for each one of the 55 families in the dataset. It is worth mentioning that even though the \emph{SCOP Database} does not provide separate training and testing datasets for each family, it proposes a list of instances to be used for training and testing, for each family. Therefore, at this stage, the preprocessing step consisted in analysing the provided mapping and in creating individual train and test files for each family.
+In an initial stage, a pre-processing of the \emph{SCOP40} data was conducted, aiming to construct a training and testing dataset for each one of the 55 families in the dataset. It is worth mentioning that even though the \emph{SCOP Database} does not provide separate training and testing datasets for each family, it proposes a list of instances to be used for training and testing, for each family. Therefore, at this stage, the pre-processing step consisted in analysing the provided mapping and in creating individual train and test files for each family.
 
-Probably the most important step in this assignment, data representation can be seen as an advanced preprocessing step to transform the data to be feed to a classifier. It strongly conditions the final performance of the classifiers as an inappropriate representation does not allow for a good separation of the data, therefore leading to poor classification performance. In this work the \emph{segmentation} was the representation technique implemented. Section \ref{data_representation} covers this technique in detail.
+Probably the most important step in this assignment, data representation can be seen as an advanced pre-processing step to transform the data to be feed to a classifier. It strongly conditions the final performance of the classifiers as an inappropriate representation does not allow for a good separation of the data, therefore leading to poor classification performance. In this work the \emph{segmentation} was the representation technique implemented. Section \ref{data_representation} covers this technique in detail.
 
 Following the representation classifiers needed to be properly trained and tested. In this work \emph{incremental} and \emph{non-incremental} classifiers were intended to be compared. In this sense two different but somewhat related classifiers were selected: \emph{LASVM}, as the incremental classifier; and \emph{Support Vector Machines (SVM)}, as the non-incremental classifier.
 
@@ -185,7 +185,7 @@ Supported by the suggestion of Hsu \emph{et al.}, a grid search method was adopt
 
 For each combination of values $(C, \gamma)$ - and for each family - a classifier was trained and its performance was registered in both the training and test dataset, using the \emph{AUC} metric. The combination of parameters that produced the best results (higher AUC in the test dataset) for each family are presented in Table \ref{svm_results}.
 
-An average AUC of $0.74$ in the test dataset was recorded. The best results in the test dataset were recorded in family \emph{"SCOP40\_b.29.1.\_b.29.1.2."}, with an AUC of $0.99$ and an SVM with the following parameters: $C = 256$ and $\gamma = 3.9e-03$. It is also worth pointing out that, for this classifier a cost of $256$ was defined. Even though much higher cost values can be found in Table \ref{svm_results}, this still remains an high cost value, suggesting a \emph{hard-limit} SVM.
+An average AUC of $0.74$ in the test dataset was recorded. The best results in the test dataset were recorded in family \emph{"SCOP40\_b.29.1.\_b.29.1.2."}, with an AUC of $0.99$ and an SVM with the following parameters: $C = 256$ and $\gamma = 3.9e-03$. Even though much higher cost values can be found in Table \ref{svm_results}, the presented value for the cost parameter still remains high, suggesting a \emph{hard-limit} SVM.
 
 Unfortunately, for some families worse results were registered: In the cases of families \emph{"SCOP40\_b.29.1.\_b.29.1.3."}, \emph{"SCOP40\_c.23.16.\_c.23.16.2."}, \emph{"SCOP40\_c.3.1.\_c.3.1.5."},\\\emph{"SCOP40\_c.68.1.\_c.68.1.13."} and \emph{"SCOP40\_d.81.1.\_d.81.1.3."} the best AUC in both the train and test dataset was $0.5$; while in the cases of families \emph{"SCOP40\_c.26.2.\_c.26.2.1."} and \emph{"SCOP40\_c.47.1.\_c.47.1.10."} clear overfitting scenarios can be identified, as to a train AUC of 1 corresponded a test AUC of about $0.5$.
 
@@ -465,9 +465,9 @@ By adopting the segmentation as the representation technique important informati
 
 In a final note, the work and results presented in this document encourage the extension of this study in different directions, which can be the main research topic of further iterations of this work:
 
-On one hand more expressive representation algorithms could be employed, as already mentioned, in an attempt to take advantage of sequential amino acid information in order to improve the identification of the proteins' families. Furthermore, other machine learning techniques for classification problems could also be explored, such as neural networks or random forests.
+On one hand more expressive representation algorithms could be employed, as already mentioned, in an attempt to take advantage of sequential amino acid information in order to improve the identification of the proteins' families. In this sense, more advanced missing values imputation techniques can also be explored: instead of simply removing the missing nucleotides from the sequences, statistical and other predictive approaches could be employed to develop to produce estimations for the missing nucleotides. This is particularly relevant for proteins \emph{d1gw5a\_} and \emph{d1gw5b\_}, which contain several missing nucleotides in sequence.
 
-Finally, a more intensive tuning of the classifiers' parameters can and should be performed. Indeed, in the scope of this work an initial logarithmic search was performed. This can give us a hint towards the order of magnitude of the parameters; however, a more detailed and exhaustive coverage of the solution space could yield better results on the test dataset.
+The application of other machine learning techniques for classification problems, such as neural networks or random forests, would also be an interesting research point. Finally, a more intensive tuning of the classifiers' parameters can and should be performed. Indeed, in the scope of this work an initial logarithmic search was performed. This can give us a hint towards the order of magnitude of the parameters; however, a more detailed and exhaustive coverage of the solution space could yield better results on the test dataset.
 
 \bibliographystyle{unsrtnat}
 \bibliography{bibliography}
