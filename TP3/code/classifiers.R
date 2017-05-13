@@ -45,11 +45,11 @@ trainModel <- function(trainDataset, modelName, testDir, resultsDir, gammaValue,
   bestModelAucTrain <- 0
   bestModel <- NULL
 
-  costStart <- 10^-3
-  costLimit <- 10^3
+  costStart <- -5
+  costLimit <- 15
   
-  gammaStart <- 10^-4
-  gammaEnd <- 10^4
+  gammaStart <- -15
+  gammaEnd <- 15
 
   if (trainSVM) {
     print('[SVM]Going to start training')
@@ -59,8 +59,8 @@ trainModel <- function(trainDataset, modelName, testDir, resultsDir, gammaValue,
   
   resultsMatrix <- matrix(c('Cost', 'Gamma', 'AUC Train', 'AUC Test'), ncol=4)
 
-  for (currCost in seq(costStart, costLimit, 0.5)) {
-    for (currGamma in seq(gammaStart, gammaEnd, 0.0001)) {
+  for (currCost in 2^(costStart:costLimit)) {
+    for (currGamma in 2^(gammaStart:gammaEnd)) {
       # Train
       if (trainSVM) {
         model <- svm(x, yFactor, kernel='radial', cost=currCost, gamma=currGamma)
