@@ -95,7 +95,7 @@ In the current assignment, a sequence similarity-based approach to this problem 
 
 One major high-level objective can be identified in the present assignment: For any given protein determine its functional class by analysing its coding sequence.
 
-This work will feature data from the \emph{SCOP Database}\cite{murzin1995scop}, more precisely the \emph{SCOP40} dataset\footnote{\url{http://pongor.itk.ppke.hu/benchmark}}. This dataset contains genetic sequences responsible for coding proteins of 55 different families. Therefore, a more low-level objective for this work is to develop classifiers capable of identifying protein sequences belonging in each of the 55 families.
+This work will feature data from the \emph{SCOP Database}\cite{murzin1995scop}, more precisely the \emph{SCOP40} dataset\footnote{\url{http://pongor.itk.ppke.hu/benchmark}}. This dataset contains genetic sequences responsible for coding proteins of 55 different families. Therefore, a more low-level objective for this work is to develop classifiers capable of identifying protein sequences belonging to each of the 55 families.
 
 The current assignment also featured a secondary objective, consisting in comparing incremental with non-incremental classifier approaches. 
 
@@ -118,9 +118,9 @@ In an initial stage, a pre-processing of the \emph{SCOP40} data was conducted, a
 
 Probably the most important step in this assignment, data representation can be seen as an advanced pre-processing step to transform the data to be feed to a classifier. It strongly conditions the final performance of the classifiers as an inappropriate representation does not allow for a good separation of the data, therefore leading to poor classification performance. In this work the \emph{segmentation} was the representation technique implemented. Section \ref{data_representation} covers this technique in detail.
 
-Following the representation classifiers needed to be properly trained and tested. In this work \emph{incremental} and \emph{non-incremental} classifiers were intended to be compared. In this sense two different but somewhat related classifiers were selected: \emph{LASVM}, as the incremental classifier; and \emph{Support Vector Machines (SVM)}, as the non-incremental classifier.
+Following the representation, classifiers needed to be properly trained and tested. In this work \emph{incremental} and \emph{non-incremental} classifiers were intended to be compared. In this sense two different but somewhat related classifiers were selected: \emph{LASVM}, as the incremental classifier; and \emph{Support Vector Machines (SVM)}, as the non-incremental classifier.
 
-As each protein sequence under analysis must be assigned to one of 55 possible families, a multi-class classification problem is being considered. In this sense one classifier for each family must be develop. Considering that two different classifiers are intended to be compared, two classifiers were trained for each family (one \emph{LASVM} and one \emph{SVM}).
+As the current assignment focuses on the identification of proteins belonging to each of the 55 different families considered, one classifier responsible for identifying proteins belonging to each family must be developed. Considering that two different classifiers are intended to be compared, two classifiers were trained for each family (one \emph{LASVM} and one \emph{SVM}).
 
 Finally, once the classifiers were properly created and trained, their performance was assessed with the testing dataset, following an analysis of the test results in order to determine which approach registered better results, if any. Considering the fact that the \emph{SCOP40} is an highly unbalanced dataset (indeed, a fact that is very common in problems of this nature in computational biology) the different approaches were not compared with respect to their accuracy, but with respect to the \emph{Area Under Curve} (AUC) metric.
 
@@ -145,7 +145,7 @@ The \emph{SCOP40} dataset contains information concerning the genetic coding seq
 \section{Data Representation}
 \label{data_representation}
 
-Referenced in section \ref{methodology}, the representation technique implemented in the current work was the \emph{segmentation} method. In short, this method consists in, for each protein sequence, count the number of occurrences of each individual nucleotide (that is, of each letter in the sequence).
+Referenced in section \ref{methodology}, the representation technique implemented in the current work was the \emph{segmentation} method. In short, for each protein sequence, this method counts the number of occurrences of each individual nucleotide (that is, of each letter in the sequence).
 
 For example, consider the following example protein sequence: \emph{"vdaeavvqqkcis"}. The segmentation method would output a total number of 3 occurrences for the \emph{"v"} nucleotide, 1 occurrence for the \emph{"d"} nucleotide, and so on. The only exception is for \emph{"x"} nucleotides, which represent missing information about a nucleotide in the protein sequence, and therefore are discarded in this exercise. Figure \ref{representation_example} presents an example of the output of this method for a protein sequence. 
 
@@ -178,16 +178,16 @@ As mentioned in section \ref{methodology}, all algorithms used throughout the wo
 Supported by the suggestion of Hsu \emph{et al.}, a grid search method was adopted to tune the SVM parameters in this task. As 55 different classifiers are intended to be trained (one for each family), the mentioned tuning process was repeated for each of the 55 trained classifiers. In this grid search exercise, the following ranges of values were defined:
 
 \begin{itemize}
-	\item For the cost parameter, $C$, the defined ranged included values from $10^{-3}$ up to $10^{3}$ in a logarithmic scale: $10^{-3}, 10^{-2}, \cdots , 10^{3}$
+	\item For the cost parameter, $C$, the defined ranged included values from $10^{-3}$ up to $10^{3}$ in a logarithmic scale: $10^{-3}, 10^{-2}, \cdots , 2^{15}$
 	
-	\item For the kernel parameter, $\gamma$, the defined range included values from $10^{-4}$ up to $10^{4}$, also in a logarithmic scale: $10^{-4}, 10^{-3}, \cdots , 10^{4}$
+	\item For the kernel parameter, $\gamma$, the defined range included values from $2^{-15}$ up to $2^{15}$, also in a logarithmic scale: $2^{-15}, 2^{-14}, \cdots , 2^{15}$
 \end{itemize}
 
 For each combination of values $(C, \gamma)$ - and for each family - a classifier was trained and its performance was registered in both the training and test dataset, using the \emph{AUC} metric. The combination of parameters that produced the best results (higher AUC in the test dataset) for each family are presented in Table \ref{svm_results}.
 
 An average AUC of $0.74$ in the test dataset was recorded. The best results in the test dataset were recorded in family \emph{"SCOP40\_b.29.1.\_b.29.1.2."}, with an AUC of $0.99$ and an SVM with the following parameters: $C = 256$ and $\gamma = 3.9e-03$. Even though much higher cost values can be found in Table \ref{svm_results}, the presented value for the cost parameter still remains high, suggesting a \emph{hard-limit} SVM.
 
-Unfortunately, for some families worse results were registered: In the cases of families \emph{"SCOP40\_b.29.1.\_b.29.1.3."}, \emph{"SCOP40\_c.23.16.\_c.23.16.2."}, \emph{"SCOP40\_c.3.1.\_c.3.1.5."},\\\emph{"SCOP40\_c.68.1.\_c.68.1.13."} and \emph{"SCOP40\_d.81.1.\_d.81.1.3."} the best AUC in both the train and test dataset was $0.5$; while in the cases of families \emph{"SCOP40\_c.26.2.\_c.26.2.1."} and \emph{"SCOP40\_c.47.1.\_c.47.1.10."} clear overfitting scenarios can be identified, as to a train AUC of 1 corresponded a test AUC of about $0.5$.
+Unfortunately, for some families worse results were registered: In the cases of families \emph{"SCOP40\_b.29.1.\_b.29.1.3."}, \emph{"SCOP40\_c.23.16.\_c.23.16.2."}, \emph{"SCOP40\_c.3.1.\_c.3.1.5."},\\\emph{"SCOP40\_c.68.1.\_c.68.1.13."} and \emph{"SCOP40\_d.81.1.\_d.81.1.3."} the best AUC in both the train and test dataset was $0.5$ - meaning that a classifier could not be learned properly; while in the cases of families \emph{"SCOP40\_c.26.2.\_c.26.2.1."} and \emph{"SCOP40\_c.47.1.\_c.47.1.10."} clear overfitting scenarios can be identified, as to a train AUC of 1 corresponded a test AUC of about $0.5$.
 
 \begin{longtable}{|p{.33\textwidth}|p{.1\textwidth}|p{.13\textwidth}|p{.15\textwidth}|p{.15\textwidth}|}
 	\hline
@@ -449,11 +449,11 @@ Like in the previous exercise, in some cases it was not possible to learn a clas
 
 The documented assignment addresses the protein classification problem, focusing on the comparison of two types of machine learning approaches to tackle such problem: Incremental - represented by the \emph{LASVM} algorithm; and Non-incremental algorithms - represented by the traditional \emph{SVM} algorithm.
 
-This work proposed the adoption of proper machine learning techniques in order to analyse a given protein sequence and determine its most likely function, by assigning the sample to one of 55 different families of proteins. In this sense 55 classifiers are intended to be developed using each of the mentioned algorithms, and their classification results assessed and compared.
+This work proposed the adoption of proper machine learning techniques in order to build classifiers capable of identifying protein sequences belonging to 55 different families. In this sense 55 classifiers were developed using each of the mentioned algorithms, and their classification results assessed and compared.
 
 During training of both algorithms the same range of parameter values was tested, of which the sets of parameters that produced the best results for each algorithm were recorded. In addition, the same gaussian kernel function was adopted in both the SVM and LASVM.
 
-On average, classifiers developed with the LASVM algorithm produced better results than classifiers developed with the SVM algorithm: an average \emph{AUC} of $0.81$ was recorded for LASVM, while the SVM approach could only achieve $0.74$. Another important difference between the two algorithms is related with their tendency to overit: while in some families it was not possible to avoid obtaining an overfitted SVM model, LASVM algorithms do not appear to be suffering from this problem. Such a result can be explained by LASVM's incremental training mechanisms. 
+On average, classifiers developed with the LASVM algorithm produced better results than SVM algorithms: an average \emph{AUC} of $0.81$ was recorded for LASVM, while the SVM approach could only achieve $0.74$. Another important difference between the two algorithms is related with their tendency to overit: while in some families it was not possible to avoid obtaining an overfitted SVM model, LASVM algorithms do not appear to be suffering from this problem. Such a result can be explained by LASVM's incremental training mechanisms. 
 
 Another interesting finding has to due with the fact that the best registered results in the test dataset do not correspond to high performances in the training dataset: In some cases an AUC of $1.0$ (or very close to this value) can be achieved in the training dataset, to which corresponds an AUC of about $0.9$ in the test dataset; on the other hand, the best results in the test dataset (with an AUC of about $0.99$) registered significantly smaller performances in the train dataset: AUC ranging between $0.7$ and $0.8$.
 
@@ -461,7 +461,7 @@ Comparing the obtained results with the benchmark available in the website where
 
 The most probable cause for the inferior results in this approach is the selected representation technique. Indeed, the results of the mentioned benchmark were obtained using more advanced and powerful\footnote{In this context the term "powerful" is employed in the sense of "more expressive".} representation techniques such as \emph{DaliLite structural alignment} (DALI).
 
-By adopting the segmentation as the representation technique important information is being discarded from each protein sequence, namely the sequence of nucleotides which is critical to determine the amino acids that compose the protein being synthesized, and ultimately, the protein's function. Furthermore, the fact that a strongly unbalanced dataset is being used also poses serious challenges when using machine learning techniques to tackle the protein classification problem.
+By adopting the segmentation representation technique important information is being discarded from each protein sequence, namely the sequence of nucleotides which is critical to determine the amino acids that compose the protein being synthesized, and ultimately, the protein's function. Furthermore, the fact that a strongly unbalanced dataset is being used also poses serious challenges when using machine learning techniques to tackle the protein classification problem.
 
 In a final note, the work and results presented in this document encourage the extension of this study in different directions, which can be the main research topic of further iterations of this work:
 
