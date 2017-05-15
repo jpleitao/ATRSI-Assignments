@@ -178,7 +178,7 @@ As mentioned in section \ref{methodology}, all algorithms used throughout the wo
 Supported by the suggestion of Hsu \emph{et al.}, a grid search method was adopted to tune the SVM parameters in this task. As 55 different classifiers are intended to be trained (one for each family), the mentioned tuning process was repeated for each of the 55 trained classifiers. In this grid search exercise, the following ranges of values were defined:
 
 \begin{itemize}
-	\item For the cost parameter, $C$, the defined ranged included values from $10^{-3}$ up to $10^{3}$ in a logarithmic scale: $10^{-3}, 10^{-2}, \cdots , 2^{15}$
+	\item For the cost parameter, $C$, the defined ranged included values from $2^{-5}$ up to $2^{15}$ in a logarithmic scale: $2^{-5}, 2^{-4}, \cdots , 2^{15}$
 	
 	\item For the kernel parameter, $\gamma$, the defined range included values from $2^{-15}$ up to $2^{15}$, also in a logarithmic scale: $2^{-15}, 2^{-14}, \cdots , 2^{15}$
 \end{itemize}
