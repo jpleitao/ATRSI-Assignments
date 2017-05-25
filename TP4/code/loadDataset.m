@@ -1,0 +1,27 @@
+function [trainData, testData] = loadDataset(num, den, ts)
+    [numerator, denominator] = c2dm(num, den, 1, 'zoh');
+
+    transferFunction = tf(numerator, denominator, ts);
+    transferFunction  % Just to have it pretty printed!
+
+    % FIXME
+    % Correr modelo no simulink; Fazer plot entrada e output no Scope e guardar imagem
+    % simOut = sim('my_model', 'CaptureErrors', 'on');
+    % simOut.getSimulationMetadata.ExecutionInfo
+
+    % Gerar dados!
+    inputData = inputRandom.Data;
+    outputData = discreteOut.Data;
+    lenOutputData = length(outputData);
+
+    dataMatrix = [
+        outputData(3:lenOutputData-1) outputData(2:lenOutputData-2) outputData(1:lenOutputData-3)...
+        inputData(3:lenOutputData-1) inputData(2:lenOutputData-2) inputData(1:lenOutputData-3) outputData(4:lenOutputData)];
+
+    numData = length(dataMatrix);
+    numTrainData = ceil(0.7 * numData);
+    trainIndexes = randperm(numData, numTrainData);
+    trainData = dataMatrix(trainIndexes, :);
+    testData = setdiff(dataMatrix, trainData, 'rows');
+end
+
