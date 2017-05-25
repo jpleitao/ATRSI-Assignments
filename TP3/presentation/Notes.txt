@@ -1,0 +1,1 @@
+Protein Classification Problem – For any given protein determine its function by analysing its coding sequence; Proteins group into families according to their function, and we have 55 different functions – We developed and trained classifiers to detect proteins of each family: So 1 per family; in fact its 2 because we want to compare incremental and non-incremental approaches
