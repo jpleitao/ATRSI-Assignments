@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularx}
+\usepackage{caption} 
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\setmarginsrb{3 cm}{1 cm}{3 cm}{1 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\title{Assignment \#4 - Process Modelling with Neuro-Fuzzy Systems}
+\date{\today}
+
+\makeatletter
+\let\thetitle\@title
+\let\thesubtitle\@subtitle
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{plain}
+
+\captionsetup[table]{skip=5pt}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \textsc{\LARGE University of Coimbra}\\[1.0 cm]
+	\textsc{\large Doctoral Program in Information Science and Technology}\\[0.5 cm]
+    \textsc{\large Real Time Learning in Intelligent Systems}\\[5 cm]
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \LARGE \bfseries \thetitle}\\ [0.2 cm]
+    \rule{\linewidth}{0.2 mm} \\[3 cm]
+    
+    \textsc{Joaquim Pedro Bento Gonçalves Pratas Leitão - 2011150072}\\[5 cm]
+	
+	{\large \thedate}\\[2 cm]
+ 
+	\vfill
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\label{introduction}
+
+Dynamic systems are often described and modelled by different equations, where the outputs in a given time instant (say k) are conditioned by previous outputs (in instants $k-1$, $k-2$, ...) and inputs (in instants $k$, $k-1$, $k-2$, ...). A system is also said to have \emph{inertia} when the inputs in a given instant only affect its outputs in posterior instants (that is, input at instant $k$ can only influence the output at instants $k+1$, $k+2$, ...).
+
+The current assignment proposes the development of a Sugeno-type Neuro-Fuzzy System (NFS) to model the dynamics of a given process or system with inertia. NFSs of this nature are characterised by mapping their input space to an output space using a series of fuzzy \emph{if-then} rules. In the particular case of Sugeno NFSs the output of each rule is written as a linear combination of the input variables. In simpler Sugeno systems, this linear combination consists in a constant value.
+
+By collecting data containing pairs of the system's input and corresponding output values the rules that define the NFS can be learned in such a way that they describe the system's behaviour.
+
+In other words, exploring collected data from the system the mentioned fuzzy rules can be learned, resulting in the development of a Sugeno NFS that models the dynamics of the desired process or system, as it is the objective of this assignment.
+
+The remainder of this document is organised as follows: Section \ref{modelled_system} presents the system to be modelled in this work; Section \ref{methodology} describes the methodology followed throughout the project; Sections \ref{fase_a} and \ref{fase_b} cover the main steps of the work, presented in the Methodology section. Finally, Section \ref{conclusion} concludes the document.
+
+
+\section{Modelled System}
+\label{modelled_system}
+
+Dizer que o sistema é de 3ª ordem (3 pólos)e uma vez que tem mais pólos (3) do que zeros (0) é um sistema com inércia.
+
+O sistema a ser considerado neste trabalho é descrito pela seguinte função de transferência:
+
+$$ G(s) = \frac{2}{s^{3} + 5s^{2} + 6.75s + 2.25}$$
+
+Pode-se demonstrar que este sistema tem memória na saída e na entrada até ao instante 3, ou seja:
+
+$$ y(k) = f(y(k-1), y(k-2), y(k-3), u(k-1), u(k-2),u(k-3))$$
+
+onde $y(k)$ representa a saída do sistema no instante $k$ e $u(k)$ a entrada do sistema no instante $k$.
+
+\section{Methodology}
+\label{methodology}
+
+Apresentar resumidamente as diferentes etapas que compõem este trabalho: as duas fases e detalhar cada uma delas.
+
+\section{Fase A}
+\label{fase_a}
+
+Melhorar título e detalhar o que se fez
+
+Não esquecer das funções de pertença!!
+
+\section{Fase B}
+\label{fase_b}
+
+Melhorar título e detalhar a segunda fase
+
+
+\section{Conclusion}
+\label{conclusion}
+
+\end{document}
