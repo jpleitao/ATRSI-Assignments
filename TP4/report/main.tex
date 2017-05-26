@@ -80,31 +80,46 @@ The remainder of this document is organised as follows: Section \ref{modelled_sy
 \section{Modelled System}
 \label{modelled_system}
 
-Dizer que o sistema é de 3ª ordem (3 pólos)e uma vez que tem mais pólos (3) do que zeros (0) é um sistema com inércia.
-
-O sistema a ser considerado neste trabalho é descrito pela seguinte função de transferência:
+The system to be modelled in this work can be defined by the following transfer function:
 
 $$ G(s) = \frac{2}{s^{3} + 5s^{2} + 6.75s + 2.25}$$
 
-Pode-se demonstrar que este sistema tem memória na saída e na entrada até ao instante 3, ou seja:
+Since the provided transfer function features $3$ poles and no zeros - therefore it has more poles than zeros - the presented system is a third-order system. It can be proved that the provided system has memory of $3$ instants in both the inputs and outputs and \emph{inertia} (meaning that inputs at a given time instant only influence future outputs). In this sense, the output of the system at any time instant $k$ can be written as:
 
 $$ y(k) = f(y(k-1), y(k-2), y(k-3), u(k-1), u(k-2),u(k-3))$$
 
-onde $y(k)$ representa a saída do sistema no instante $k$ e $u(k)$ a entrada do sistema no instante $k$.
+where $y(k)$ represents the system's output at instant $k$ and $u(k)$ represents the system's input at instant $k$.
 
 \section{Methodology}
 \label{methodology}
 
-Apresentar resumidamente as diferentes etapas que compõem este trabalho: as duas fases e detalhar cada uma delas.
+The project and development of a Neuro-Fuzzy System can be a complex and extensive task. Nevertheless, in the scope of the current work, the following two main steps will be considered:
 
-\section{Fase A}
+\begin{enumerate}
+	\item \textsc{Learning Stage}, where a model of the system is learned using data collected from the system. This stage comprises three main sub-tasks:
+	
+	\begin{itemize}
+		\item \emph{Data collection}, where pairs of system's \emph{input-output} data are collected, which will be used as a labelled dataset during the learning. Collecting a good set of \emph{input-output} data is critical in the final outcome. These data should be representative of the dynamics of the system, making the input and output vary over the entire permissible domain. A good technique is to use a random input sequence that forces the output to move through the entire space.
+		
+		\item \emph{Fuzzy rules initialisation}. An initial estimate for the NFS's rules is obtained by applying a \emph{clustering} algorithm to the labelled dataset collected in the previous point. Common algorithms used at this stage include subtractive, c-means and fuzzy c-means clustering.
+		
+		\item \emph{Fuzzy rules optimisation}. A further optimisation of the fuzzy rules computed in the previous point is usually performed, aiming to reduce the modelling error. An \emph{ANFIS} structure is commonly used along with either a \emph{backpropagation} or \emph{hybrid} optimisation method (although other alternatives maybe considered at this point).
+		
+	\end{itemize}
+	
+	\item \textsc{Assessment Stage}, where different input signals are provided to both the developed model and the real system with the objective of comparing the real and simulated outputs. The ultimate goal of this task is to certify that the developed model of the system can accurately describe its behaviour.
+\end{enumerate}
+
+\section{Learning Stage}
 \label{fase_a}
 
-Melhorar título e detalhar o que se fez
+Detalhar o que se fez.
 
-Não esquecer das funções de pertença!!
+Começar pela geração do dataset, referir clustering methods e optimisation methods.
 
-\section{Fase B}
+Não esquecer das funções de pertença em cada caso!!
+
+\section{Assessment Stage}
 \label{fase_b}
 
 Melhorar título e detalhar a segunda fase
