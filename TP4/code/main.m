@@ -3,22 +3,20 @@
 % Doctoral Program in Information Science and Technology - Real Time Learning in Intelligent Systems
 % Assignment 4
 
-% ========================== Load Data ===========================
-ts = 1;
+% =================================== Compute Delays ===================================
 num = 2;
 den = [1 5 6.75 2.25];
-[trainData, testData] = loadDataset(num, den, ts);
+rootsDen = roots(den);
+inverseRoots = -1./rootsDen;
+minRoot = min(inverseRoots);
+timeDelay = minRoot/3;
 
-% Further work steps:
-% 1) Inicialisar regras fazendo clustering usando dados de treino - Obter FIS inicial
-% 2) Usar regras obtidas no clustering na inicialisação da rede neuronal no ANFIS - Treinar rede com dados de treino -
-%    Como output obter o modeo FIS tuned -- definir método de treino (híbrido vs retropropagação)
-% 3) Depois de ter o modelo treinado validar com dados de teste
+% =================================== Load Data ===================================
+[numerator, denominator] = c2dm(num, den, 1, 'zoh');
+[trainData, testData] = loadDataset(numerator, denominator, timeDelay);
 
 
-% =================================== Clustering =====================================
-
-% TODO: Vary parameters here!!!
+% =================================== Clustering ===================================
 
 % Subtractive ANFIS parameters
 clusterInfluenceRange = 0.5;
@@ -38,30 +36,64 @@ fcmFIS = initialiseFIS('FCMClustering', exponent, maxNumIteration, minImprovemen
 
 % ====================================== ANFIS ===========================================
 
-% TODO: Vary parameters here!!!
+% ********** Train Subtractive
+epochNumber = 200;
+optimizationMethod = 1;  % 1 - Hybrid ; 0 - Backpropagation
+[subtractiveHybridAnfis, subtractiveHybridError] = trainANFIS(subtractiveFIS, trainData, epochNumber,...
+    optimizationMethod);
 
-subtractiveEpochNumber = 10;
-subtractiveOptimizationMethod = 1;  % 1 - Hybrid ; 0 - Backpropagation
-[subtractiveANFIS, subtractiveError] = trainANFIS(subtractiveFIS, trainData, subtractiveEpochNumber,...
-    subtractiveOptimizationMethod);
+optimizationMethod = 0;  % 1 - Hybrid ; 0 - Backpropagation
+[subtractiveBackAnfis, subtractiveBackError] = trainANFIS(subtractiveFIS, trainData, epochNumber,...
+    optimizationMethod);
 
+% ********** Train FCM
+optimizationMethod = 1;  % 1 - Hybrid ; 0 - Backpropagation
+[fcmHybridAnfis, fcmHybridError] = trainANFIS(fcmFIS, trainData, epochNumber, optimizationMethod);
+
+optimizationMethod = 0;  % 1 - Hybrid ; 0 - Backpropagation
+[fcmBackAnfis, fcmBackError] = trainANFIS(fcmFIS, trainData, epochNumber, optimizationMethod);
+
+% ********** Test Subtractive
 [~, ncols] = size(testData);
 yReal = testData(:, ncols);
-y = evalfis(testData(:, 1:ncols-1), subtractiveANFIS);
-% TODO: Calcular root mean squared error
+ysubtractiveHybrid = evalfis(testData(:, 1:ncols-1), subtractiveHybridAnfis);
+ysubtractiveBack = evalfis(testData(:, 1:ncols-1), subtractiveBackAnfis);
+yfcmHybrid = evalfis(testData(:, 1:ncols-1), fcmHybridAnfis);
+yfcmBack = evalfis(testData(:, 1:ncols-1), fcmBackAnfis);
 
-fcmEpochNumber = 10;
-subtractiveOptimizationMethod = 1;  % 1 - Hybrid ; 0 - Backpropagation
-[fcmANFIS, fcmError] = trainANFIS(fcmFIS, trainData, fcmEpochNumber, subtractiveOptimizationMethod);
+errorSubtractiveHybridTest = rms(yReal - ysubtractiveHybrid);
+errorSubtractiveBackTest = rms(yReal - ysubtractiveBack);
+errorFcmHybridTest = rms(yReal - yfcmHybrid);
+errorFcmBackTest = rms(yReal - yfcmBack);
 
-[~, ncols] = size(testData);
-yReal = testData(:, ncols);
-y = evalfis(testData(:, 1:ncols-1), fcmANFIS);
-% TODO: Calcular root mean squared error
+% Export all 4 anfis
+writefis(subtractiveHybridAnfis, 'subtractiveHybridAnfis');
+writefis(subtractiveBackAnfis, 'subtractiveBackAnfis');
+writefis(fcmHybridAnfis, 'fcmHybridAnfis');
+writefis(fcmBackAnfis, 'fcmBackAnfis');
 
+% Run final simulink simulation
+sim('fuzzyModel.slx');
 
-% ================== Compute Delays ================
-rootsDen = roots(den);
-inverseRoots = -1./rootsDen;
-minRoot = min(inverseRoots);
-timeDelay = minRoot/2;
+% Comparar com o modelo no simulink e meter os resultados
+% TODO: Fazer para seno, onda quadrada, dente serra...
+
+% Plot simout and compute RMSE
+simulationValues = simout.signals.values;
+time = simout.time;
+
+transFun = simulationValues(:, 1);
+subHybrid = simulationValues(:, 2);
+subBack = simulationValues(:, 3);
+fcmHybrid = simulationValues(:, 4);
+fcmBack = simulationValues(:, 5);
+
+figure();
+plot(time, transFun, time, subHybrid, time, subBack, time, fcmHybrid, time, fcmBack);
+title('Transfer Function and Fuzzy Systems Responses');
+legend('Transfer Function', 'subtractiveHybrid', 'subtractiveBackpropagation', 'fcmHybrid', 'fcmBackpropagation');
+
+errorSubtractiveHybridVal = rms(transFun - subHybrid);
+errorSubtractiveBackVal = rms(transFun - subBack);
+errorFcmHybridVal = rms(transFun - fcmHybrid);
+errorFcmBackVal = rms(transFun - fcmBack);
