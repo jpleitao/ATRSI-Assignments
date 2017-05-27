@@ -15,7 +15,6 @@ timeDelay = minRoot/3;
 [numerator, denominator] = c2dm(num, den, 1, 'zoh');
 [trainData, testData] = loadDataset(numerator, denominator, timeDelay);
 
-
 % =================================== Clustering ===================================
 
 % Subtractive ANFIS parameters
@@ -53,7 +52,7 @@ optimizationMethod = 1;  % 1 - Hybrid ; 0 - Backpropagation
 optimizationMethod = 0;  % 1 - Hybrid ; 0 - Backpropagation
 [fcmBackAnfis, fcmBackError] = trainANFIS(fcmFIS, trainData, epochNumber, optimizationMethod);
 
-% ********** Test Subtractive
+% ********** Test
 [~, ncols] = size(testData);
 yReal = testData(:, ncols);
 ysubtractiveHybrid = evalfis(testData(:, 1:ncols-1), subtractiveHybridAnfis);
