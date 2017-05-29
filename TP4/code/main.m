@@ -89,8 +89,9 @@ fcmBack = simulationValues(:, 5);
 
 figure();
 plot(time, transFun, time, subHybrid, time, subBack, time, fcmHybrid, time, fcmBack);
-title('Transfer Function and Fuzzy Systems Responses');
+title('Transfer Function and Fuzzy Systems Responses for Sawtooth wave');
 legend('Transfer Function', 'subtractiveHybrid', 'subtractiveBackpropagation', 'fcmHybrid', 'fcmBackpropagation');
+xlabel('Simulation time');
 
 errorSubtractiveHybridVal = rms(transFun - subHybrid);
 errorSubtractiveBackVal = rms(transFun - subBack);

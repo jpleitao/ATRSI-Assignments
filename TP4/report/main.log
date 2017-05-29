@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.6)  27 MAY 2017 22:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.6)  29 MAY 2017 17:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -709,14 +709,14 @@ File: images/input_generator_block_diagram.png Graphic file (type png)
 
 <use images/input_generator_block_diagram.png>
 Package pdftex.def Info: images/input_generator_block_diagram.png used on input
- line 133.
+ line 134.
 (pdftex.def)             Requested size: 367.76749pt x 214.79869pt.
 
 <images/randomInputOutput.png, id=22, 429.2838pt x 310.761pt>
 File: images/randomInputOutput.png Graphic file (type png)
 
 <use images/randomInputOutput.png>
-Package pdftex.def Info: images/randomInputOutput.png used on input line 142.
+Package pdftex.def Info: images/randomInputOutput.png used on input line 143.
 (pdftex.def)             Requested size: 214.64137pt x 155.38011pt.
  [3 <./images/input_generator_block_diagram.png> <./images/randomInputOutput.pn
 g (PNG copy)>] [4]
@@ -724,42 +724,42 @@ g (PNG copy)>] [4]
 File: images/subtractive_in1.png Graphic file (type png)
 
 <use images/subtractive_in1.png>
-Package pdftex.def Info: images/subtractive_in1.png used on input line 196.
+Package pdftex.def Info: images/subtractive_in1.png used on input line 197.
 (pdftex.def)             Requested size: 125.9017pt x 86.72377pt.
 
 <images/subtractive_in2.png, id=33, 715.67375pt x 491.8375pt>
 File: images/subtractive_in2.png Graphic file (type png)
 
 <use images/subtractive_in2.png>
-Package pdftex.def Info: images/subtractive_in2.png used on input line 202.
+Package pdftex.def Info: images/subtractive_in2.png used on input line 203.
 (pdftex.def)             Requested size: 126.18391pt x 86.72377pt.
 
 <images/subtractive_in3.png, id=34, 708.6475pt x 492.84125pt>
 File: images/subtractive_in3.png Graphic file (type png)
 
 <use images/subtractive_in3.png>
-Package pdftex.def Info: images/subtractive_in3.png used on input line 208.
+Package pdftex.def Info: images/subtractive_in3.png used on input line 209.
 (pdftex.def)             Requested size: 124.6964pt x 86.72377pt.
 
 <images/subtractive_in4.png, id=35, 712.6625pt x 495.8525pt>
 File: images/subtractive_in4.png Graphic file (type png)
 
 <use images/subtractive_in4.png>
-Package pdftex.def Info: images/subtractive_in4.png used on input line 214.
+Package pdftex.def Info: images/subtractive_in4.png used on input line 215.
 (pdftex.def)             Requested size: 124.64168pt x 86.72377pt.
 
 <images/subtractive_in5.png, id=36, 711.65875pt x 494.84875pt>
 File: images/subtractive_in5.png Graphic file (type png)
 
 <use images/subtractive_in5.png>
-Package pdftex.def Info: images/subtractive_in5.png used on input line 220.
+Package pdftex.def Info: images/subtractive_in5.png used on input line 221.
 (pdftex.def)             Requested size: 124.71588pt x 86.72377pt.
 
 <images/subtractive_in6.png, id=37, 713.66624pt x 495.8525pt>
 File: images/subtractive_in6.png Graphic file (type png)
 
 <use images/subtractive_in6.png>
-Package pdftex.def Info: images/subtractive_in6.png used on input line 226.
+Package pdftex.def Info: images/subtractive_in6.png used on input line 227.
 (pdftex.def)             Requested size: 124.81723pt x 86.72377pt.
  [5 <./images/subtractive_in1.png> <./images/subtractive_in2.png> <./images/sub
 tractive_in3.png> <./images/subtractive_in4.png> <./images/subtractive_in5.png>
@@ -767,39 +767,39 @@ tractive_in3.png> <./images/subtractive_in4.png> <./images/subtractive_in5.png>
 <images/fcm_in1.png, id=47, 710.655pt x 494.84875pt>
 File: images/fcm_in1.png Graphic file (type png)
  <use images/fcm_in1.png>
-Package pdftex.def Info: images/fcm_in1.png used on input line 255.
+Package pdftex.def Info: images/fcm_in1.png used on input line 256.
 (pdftex.def)             Requested size: 124.53998pt x 86.72377pt.
 
 <images/fcm_in2.png, id=48, 708.6475pt x 491.8375pt>
 File: images/fcm_in2.png Graphic file (type png)
  <use images/fcm_in2.png>
-Package pdftex.def Info: images/fcm_in2.png used on input line 261.
+Package pdftex.def Info: images/fcm_in2.png used on input line 262.
 (pdftex.def)             Requested size: 124.9451pt x 86.72377pt.
 
 <images/fcm_in3.png, id=49, 712.6625pt x 495.8525pt>
 File: images/fcm_in3.png Graphic file (type png)
  <use images/fcm_in3.png>
-Package pdftex.def Info: images/fcm_in3.png used on input line 267.
+Package pdftex.def Info: images/fcm_in3.png used on input line 268.
 (pdftex.def)             Requested size: 124.64168pt x 86.72377pt.
 
 <images/fcm_in4.png, id=50, 713.66624pt x 492.84125pt>
 File: images/fcm_in4.png Graphic file (type png)
 
 <use images/fcm_in4.png>
-Package pdftex.def Info: images/fcm_in4.png used on input line 273.
+Package pdftex.def Info: images/fcm_in4.png used on input line 274.
 (pdftex.def)             Requested size: 125.5795pt x 86.72377pt.
 
 <images/fcm_in5.png, id=51, 713.66624pt x 496.85625pt>
 File: images/fcm_in5.png Graphic file (type png)
 
 <use images/fcm_in5.png>
-Package pdftex.def Info: images/fcm_in5.png used on input line 279.
+Package pdftex.def Info: images/fcm_in5.png used on input line 280.
 (pdftex.def)             Requested size: 124.56677pt x 86.72377pt.
  <images/fcm_in6.png, id=52, 708.6475pt x 491.8375pt>
 File: images/fcm_in6.png Graphic file (type png)
 
 <use images/fcm_in6.png>
-Package pdftex.def Info: images/fcm_in6.png used on input line 285.
+Package pdftex.def Info: images/fcm_in6.png used on input line 286.
 (pdftex.def)             Requested size: 124.9451pt x 86.72377pt.
  [6 <./images/fcm_in1.png> <./images/fcm_in2.png> <./images/fcm_in3.png> <./ima
 ges/fcm_in4.png> <./images/fcm_in5.png> <./images/fcm_in6.png>] <images/fcm_hyb
@@ -807,75 +807,112 @@ rid_in1.png, id=65, 725.71124pt x 555.07375pt>
 File: images/fcm_hybrid_in1.png Graphic file (type png)
 
 <use images/fcm_hybrid_in1.png>
-Package pdftex.def Info: images/fcm_hybrid_in1.png used on input line 321.
+Package pdftex.def Info: images/fcm_hybrid_in1.png used on input line 322.
 (pdftex.def)             Requested size: 113.38103pt x 86.72377pt.
 
 <images/fcm_hybrid_in2.png, id=66, 728.7225pt x 553.06625pt>
 File: images/fcm_hybrid_in2.png Graphic file (type png)
 
 <use images/fcm_hybrid_in2.png>
-Package pdftex.def Info: images/fcm_hybrid_in2.png used on input line 327.
+Package pdftex.def Info: images/fcm_hybrid_in2.png used on input line 328.
 (pdftex.def)             Requested size: 114.26291pt x 86.72377pt.
 
 <images/fcm_hybrid_in3.png, id=67, 728.7225pt x 556.0775pt>
 File: images/fcm_hybrid_in3.png Graphic file (type png)
 
 <use images/fcm_hybrid_in3.png>
-Package pdftex.def Info: images/fcm_hybrid_in3.png used on input line 333.
+Package pdftex.def Info: images/fcm_hybrid_in3.png used on input line 334.
 (pdftex.def)             Requested size: 113.64021pt x 86.72377pt.
 
 <images/fcm_hybrid_in4.png, id=68, 730.73pt x 557.08125pt>
 File: images/fcm_hybrid_in4.png Graphic file (type png)
 
 <use images/fcm_hybrid_in4.png>
-Package pdftex.def Info: images/fcm_hybrid_in4.png used on input line 339.
+Package pdftex.def Info: images/fcm_hybrid_in4.png used on input line 340.
 (pdftex.def)             Requested size: 113.75258pt x 86.72377pt.
 
 <images/fcm_hybrid_in5.png, id=69, 724.7075pt x 552.0625pt>
 File: images/fcm_hybrid_in5.png Graphic file (type png)
 
 <use images/fcm_hybrid_in5.png>
-Package pdftex.def Info: images/fcm_hybrid_in5.png used on input line 345.
+Package pdftex.def Info: images/fcm_hybrid_in5.png used on input line 346.
 (pdftex.def)             Requested size: 113.84346pt x 86.72377pt.
 
 <images/fcm_hybrid_in6.png, id=70, 726.715pt x 556.0775pt>
 File: images/fcm_hybrid_in6.png Graphic file (type png)
 
 <use images/fcm_hybrid_in6.png>
-Package pdftex.def Info: images/fcm_hybrid_in6.png used on input line 351.
+Package pdftex.def Info: images/fcm_hybrid_in6.png used on input line 352.
 (pdftex.def)             Requested size: 113.32716pt x 86.72377pt.
 
-Overfull \hbox (66.20206pt too wide) in paragraph at lines 363--371
+Overfull \hbox (66.20206pt too wide) in paragraph at lines 364--372
 [][] 
  []
 
 [7 <./images/fcm_hybrid_in1.png> <./images/fcm_hybrid_in2.png> <./images/fcm_hy
 brid_in3.png> <./images/fcm_hybrid_in4.png> <./images/fcm_hybrid_in5.png> <./im
-ages/fcm_hybrid_in6.png>] [8] (./main.aux) ) 
+ages/fcm_hybrid_in6.png>]
+<images/assessment_simulink.png, id=80, 1189.44376pt x 741.77126pt>
+File: images/assessment_simulink.png Graphic file (type png)
+
+<use images/assessment_simulink.png>
+Package pdftex.def Info: images/assessment_simulink.png used on input line 384.
+
+(pdftex.def)             Requested size: 475.76907pt x 296.70325pt.
+
+Overfull \hbox (48.33754pt too wide) in paragraph at lines 384--385
+ [][] 
+ []
+
+[8 <./images/assessment_simulink.png>]
+<images/assessment_sawtooth.png, id=85, 656.4525pt x 455.45157pt>
+File: images/assessment_sawtooth.png Graphic file (type png)
+
+<use images/assessment_sawtooth.png>
+Package pdftex.def Info: images/assessment_sawtooth.png used on input line 433.
+
+(pdftex.def)             Requested size: 328.22545pt x 227.72522pt.
+ [9]
+<images/assessment_sine.png, id=89, 764.10469pt x 422.32782pt>
+File: images/assessment_sine.png Graphic file (type png)
+
+<use images/assessment_sine.png>
+Package pdftex.def Info: images/assessment_sine.png used on input line 443.
+(pdftex.def)             Requested size: 382.0514pt x 211.16339pt.
+
+<images/assessment_square.png, id=90, 665.48625pt x 425.33907pt>
+File: images/assessment_square.png Graphic file (type png)
+
+<use images/assessment_square.png>
+Package pdftex.def Info: images/assessment_square.png used on input line 450.
+(pdftex.def)             Requested size: 332.74231pt x 212.669pt.
+ [10 <./images/assessment_sawtooth.png (PNG copy)> <./images/assessment_sine.pn
+g (PNG copy)>] [11 <./images/assessment_square.png (PNG copy)>] [12] (./main.au
+x) ) 
 Here is how much of TeX's memory you used:
- 5858 strings out of 493013
- 80602 string characters out of 6135683
- 164483 words of memory out of 5000000
- 9257 multiletter control sequences out of 15000+600000
+ 5886 strings out of 493013
+ 81339 string characters out of 6135683
+ 164537 words of memory out of 5000000
+ 9281 multiletter control sequences out of 15000+600000
  14905 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,17n,43p,569b,508s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (9 pages, 948652 bytes).
+ 41i,17n,43p,654b,508s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
+fb>
+Output written on main.pdf (13 pages, 1088549 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 140 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

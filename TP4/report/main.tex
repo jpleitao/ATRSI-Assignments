@@ -119,6 +119,7 @@ As presented in the previous section, the goal of the \emph{Learning Stage} is t
 Therefore the first step of this stage is related with data collection. Since no access to the \emph{"real", physical} system is available data will be collected with \emph{Simulink}, a graphical programming and simulation environment available with the \emph{MATLAB} software.
 
 \subsection{Data Collection}
+\label{data_collection}
 
 Usually, the process of collecting data from a given system assumes that the collection is made at a given frequency, meaning that samples are collected with a given interval. It is recommended that the sampling interval (also referred to as discretization interval) be less than the inverse of the smaller pole of the system. As such, a sampling interval equal to one-third of the inverse of the smaller pole of the system was used.
 
@@ -178,12 +179,12 @@ The remainder of the current subsection presents a detailed view of the fuzzy in
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\textbf{Input Number} & \textbf{Membership Function Type} & \textbf{Parameters} \\ \hline
-		in1 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.4619$ \\ $C = 0.0151$ \end{tabular} \\ \hline
-		in2 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.4834$ \\ $C = 0.02519$ \end{tabular} \\ \hline
-		in3 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.4834$ \\ $C = -0.01773$ \end{tabular} \\ \hline
-		in4 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 1.219$ \\ $C = -0.3147$ \end{tabular} \\ \hline
-		in5 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 1.213$ \\ $C = -0.0699$ \end{tabular} \\ \hline
-		in6 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 1.213$ \\ $C = -0.01328$ \end{tabular} \\ \hline
+		in1 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.4619; 0.4619; 0.4619]$ \\ $C = [0.0151; 0.4848; -0.5181]$ \end{tabular} \\ \hline
+		in2 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.4834; 0.4834; 0.4834]$ \\ $C = [0.0252; 0.4486; -0.5278]$ \end{tabular} \\ \hline
+		in3 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.4834; 0.4834; 0.4834]$ \\ $C = [-0.0177; 0.2468; -0.5145]$ \end{tabular} \\ \hline
+		in4 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [1.2188; 1.2188; 1.2188]$ \\ $C = [-0.3147; 0.6766; 0.03]$ \end{tabular} \\ \hline
+		in5 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [1.2129; 1.2129; 1.2129]$ \\ $C = [-0.0699; 0.5373; 0.1799]$ \end{tabular} \\ \hline
+		in6 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [1.2129; 1.2129; 1.2129]$ \\ $C = [-0.0133; 0.4407; -1.1277]$ \end{tabular} \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -237,12 +238,12 @@ The remainder of the current subsection presents a detailed view of the fuzzy in
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\textbf{Input Number} & \textbf{Membership Function Type} & \textbf{Parameters} \\ \hline
-		in1 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.1988$ \\ $C = -0.1053$ \end{tabular} \\ \hline
-		in2 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.1971$ \\ $C = -0.03129$ \end{tabular} \\ \hline
-		in3 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.198$ \\ $C = 0.02137$ \end{tabular} \\ \hline
-		in4 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.54$ \\ $C = -0.03183$ \end{tabular} \\ \hline
-		in5 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.6063$ \\ $C = -0.6561$ \end{tabular} \\ \hline
-		in6 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.5256$ \\ $C = -0.07139$ \end{tabular} \\ \hline
+		in1 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.1988; 0.1984; 0.2096]$ \\ $C = [-0.1053; -0.1094; 0.1818]$ \end{tabular} \\ \hline
+		in2 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.1971; 0.1999; 0.2]$ \\ $C = [-0.03129; -0.0849; 0.0888]$ \end{tabular} \\ \hline
+		in3 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.198; 0.1983; 0.1987]$ \\ $C = [-0.0214; -0.0277; 0.0248]$ \end{tabular} \\ \hline
+		in4 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.54; 0.5405; 0.5408]$ \\ $C = [-0.0318; 0.0294; -0.0245]$ \end{tabular} \\ \hline
+		in5 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.6063; 0.5544; 0.5526]$ \\ $C = [-0.6561; 0.3178; 0.287]$ \end{tabular} \\ \hline
+		in6 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.5256; 0.5695; 0.5786]$ \\ $C = [-0.0714; -0.5193; 0.5411]$ \end{tabular} \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -305,12 +306,12 @@ Analysing the input membership functions of the optimised Neuro-Fuzzy Systems (N
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\textbf{Input Number} & \textbf{Membership Function Type} & \textbf{Parameters} \\ \hline
-		in1 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.1245$ \\ $C = -0.09694$ \end{tabular} \\ \hline
-		in2 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.1186$ \\ $C = -0.02818$ \end{tabular} \\ \hline
-		in3 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = -0.0002885$ \\ $C = -0.01535$ \end{tabular} \\ \hline
-		in4 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.478$ \\ $C = -0.03009$ \end{tabular} \\ \hline
-		in5 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.5866$ \\ $C = -0.6511$ \end{tabular} \\ \hline
-		in6 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = 0.4937$ \\ $C = -0.07275$ \end{tabular} \\ \hline
+		in1 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.1245; 0.2246; 0.222]$ \\ $C = [-0.0969; -0.1212; 0.1701]$ \end{tabular} \\ \hline
+		in2 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.1186; 0.2227; 0.2101]$ \\ $C = [-0.0282; -0.0854; 0.0858]$ \end{tabular} \\ \hline
+		in3 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [-0.0002885; 0.2296; 0.2105]$ \\ $C = [-0.01535; -0.0312; 0.0238]$ \end{tabular} \\ \hline
+		in4 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.478; 0.5723; 0.5579]$ \\ $C = [-0.03009; 0.028; -0.0258]$ \end{tabular} \\ \hline
+		in5 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.5866; 0.6097; 0.5833]$ \\ $C = [-0.6511; 0.2963; 0.2749]$ \end{tabular} \\ \hline
+		in6 & Gaussian Curve (gaussmf) & \begin{tabular}[c]{@{}c@{}}$\sigma = [0.4937; 0.582; 0.5829]$ \\ $C = [-0.0727; -0.5151; 0.5403]$ \end{tabular} \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -376,14 +377,97 @@ Once the optimisation was complete, the performance of the final Neuro-Fuzzy Inf
 \section{Assessment Stage}
 \label{fase_b}
 
-Detalhar segunda fase - Apresentar imagem do modelo simulink
+Having developed and trained several NFSs to model the behaviour of the system presented in Section \ref{modelled_system} more diverse and intensive tests must be performed. With the goal of determining how close the developed NFSs were from the actual system a \emph{Simulink} model was developed and is presented in Figure \ref{assessment_simulink}.
 
-\textbf{FIXME: TODO}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.4]{images/assessment_simulink.png}
+	\caption{Block diagram developed in Simulink to assess how close the developed NFSs were to the actual system to be modelled.}
+	\label{assessment_simulink}
+\end{figure}
+
+In this exercise, a signal generator produces an input signal that is provided to the system being modelled (contained in the \emph{Transfer Func} block, described by the transfer function presented in Section \ref{modelled_system}) and to each one of the four NFSs developed in the previous stage. The five computed outputs were then inspected and plotted in the \emph{Scope} block.
+
+The following functions were used in the \emph{Signal Generator} block to produce the input signals:
+
+\begin{itemize}
+	\item \emph{Sawtooth} wave, with an amplitude of $5$, units defined in \emph{Hertz} and a frequency set to the sampling interval whose computation was described in Section \ref{data_collection}.
+		
+	\item \emph{Sine} wave, with an amplitude of $5$, units defined in \emph{Hertz} and a frequency set to the sampling interval whose computation was described in Section \ref{data_collection}.
+	
+	\item \emph{Square} wave, with an amplitude of $5$, units defined in \emph{Hertz} and a frequency set to the sampling interval whose computation was described in Section \ref{data_collection}. 
+\end{itemize}
+
+Table \ref{results_table} presents the \emph{Root Mean Squared} (rmse) errors registered with each developed Neuro-Fuzzy System, for each input wave.
+
+\begin{table}[ht]
+	\centering
+	\caption{Root Mean Squared Errors of the different Neuro-Fuzzy Systems for the three input waves.}
+	\label{results_table}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Wave Type} & \textbf{\begin{tabular}[c]{@{}c@{}}Cluster\\ Technique\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Optimisation\\ Type\end{tabular}} & \textbf{RMSE} \\ \hline
+		Sawtooth & Subtractive & Hybrid & $0.7438$ \\ \hline
+		Sawtooth & Subtractive & Backpropagation & $0.7386$ \\ \hline
+		Sawtooth & Fuzzy C-Means & Hybrid & $0.7437$ \\ \hline
+		Sawtooth & Fuzzy C-Means & Backpropagation & $0.7553$ \\ \hline
+		
+		Sine & Subtractive & Hybrid & $0.9182$ \\ \hline
+		Sine & Subtractive & Backpropagation & $0.9138$ \\ \hline
+		Sine & Fuzzy C-Means & Hybrid & $0.9181$ \\ \hline
+		Sine & Fuzzy C-Means & Backpropagation & $0.9305$ \\ \hline
+		
+		Square & Subtractive & Hybrid & $1.2836$ \\ \hline
+		Square & Subtractive & Backpropagation & $1.2727$ \\ \hline
+		Square & Fuzzy C-Means & Hybrid & $1.2834$ \\ \hline
+		Square & Fuzzy C-Means & Backpropagation & $1.3008$ \\ \hline
+	\end{tabular}
+\end{table}
+
+Analysing the results presented in Table \ref{results_table} it can be seen that, for the same input values, the four different NFSs produce very similar outputs. Such a statement is supported by the fact that $rmse$ values for the same wave type are very similar.
+
+The \emph{Sawtooth} wave recorded the smallest \emph{rmse} values, with error values between $0.73$ and $0.75$. Even though the values are small, a closer inspection to the produced outputs presented in Figure \ref{results_sawtooth} reveals the existence of an antecipation in the NFSs response: changes in the NFSs outputs occur slightly before the change in the outputs of the system described the transfer function (represented in blue).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{images/assessment_sawtooth.png}
+	\caption{Outputs of the system being modelled and the four NFSs developed when using the \emph{Sawtooth} wave to produce the inputs.}
+	\label{results_sawtooth}
+\end{figure}
+
+Indeed, such a behaviour can be identified for both the square and sin waves: whenever the input signal changes its direction the developed NFSs always react before the actual system being modelled. Figures \ref{results_sine} and \ref{results_square} illustrate this phenomena.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{images/assessment_sine.png}
+	\caption{Outputs of the system being modelled and the four NFSs developed when using the \emph{Sine} wave to produce the inputs.}
+	\label{results_sine}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{images/assessment_square.png}
+	\caption{Outputs of the system being modelled and the four NFSs developed when using the \emph{Square} wave to produce the inputs.}
+	\label{results_square}
+\end{figure}
 
 
 \section{Conclusion}
 \label{conclusion}
 
-\textbf{FIXME: TODO}
+The current work focused on the task of modelling dynamic processes by means of Neuro-Fuzzy Systems. In the course of this work, such fuzzy logic controllers were projected and developed, based on the dynamics of a given system, described by a transfer function.
+
+In an initial stage, a random input signal was provided to the \emph{"real"} system (that is, the one to be modelled) and its corresponding outputs were recorded, creating a dataset to be used in the development of the Neuro-Fuzzy Systems. This development consisted in two main stages:
+
+At first, estimates to the fuzzy rules that govern the operation of these systems were obtained by means of a clustering technique - two distinct clustering algorithms were considered: \emph{Subtractive} and \emph{Fuzzy C-Means} clustering.
+
+In a second step, an optimisation of the initial rules estimates was performed using an \emph{ANFIS} structure. Two optimisation methods were also considered at this point - \emph{Backpropagation} and an \emph{Hybrid} optimisation method.
+
+After the training, an initial performance assessment was conducted with part of the data initially collected. As presented in Table \ref{assessment_simulink}, the use of the \emph{Backpropagation} optimisation technique registered the lowest errors during training; however substantially worst results were registered during testing, suggesting a lack of generalisation for this optimisation method. On the other hand, the \emph{Hybrid} optimisation method was still capable of producing acceptable results in training which remained more stable during testing, suggesting a more general (and therefore desirable) model.
+
+Based on the information mentioned, models developed using the \emph{Hybrid} optimisation method could be seen as good candidates to model the dynamics of the system in question. Nevertheless, as described and discussed in Section \ref{fase_b}, when subjecting the system to input signals with different characteristics no major differences between the four trained NFSs could be identified. Indeed, \textbf{FIXME: Falar aqui do atraso?? O que dizer ao certo???}
+
+\textbf{FIXME: Confirmar esta última frase - Ver resposta Blue}
 
 \end{document}
