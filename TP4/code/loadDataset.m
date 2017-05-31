@@ -21,8 +21,7 @@ function [trainData, testData] = loadDataset(numerator, denominator, ts)
 
     numData = length(dataMatrix);
     numTrainData = ceil(0.7 * numData);
-    trainIndexes = randperm(numData, numTrainData);
-    trainData = dataMatrix(trainIndexes, :);
-    testData = setdiff(dataMatrix, trainData, 'rows');
+    trainData = dataMatrix(1:numTrainData, :);
+    testData = dataMatrix(numTrainData+1:end, :);
 end
 

@@ -12,7 +12,7 @@ minRoot = min(inverseRoots);
 timeDelay = minRoot/3;
 
 % =================================== Load Data ===================================
-[numerator, denominator] = c2dm(num, den, 1, 'zoh');
+[numerator, denominator] = c2dm(num, den, timeDelay, 'zoh');
 [trainData, testData] = loadDataset(numerator, denominator, timeDelay);
 
 % =================================== Clustering ===================================
@@ -74,9 +74,6 @@ writefis(fcmBackAnfis, 'fcmBackAnfis');
 % Run final simulink simulation
 sim('fuzzyModel.slx');
 
-% Comparar com o modelo no simulink e meter os resultados
-% TODO: Fazer para seno, onda quadrada, dente serra...
-
 % Plot simout and compute RMSE
 simulationValues = simout.signals.values;
 time = simout.time;
@@ -89,7 +86,7 @@ fcmBack = simulationValues(:, 5);
 
 figure();
 plot(time, transFun, time, subHybrid, time, subBack, time, fcmHybrid, time, fcmBack);
-title('Transfer Function and Fuzzy Systems Responses for Sawtooth wave');
+title('Transfer Function and Fuzzy Systems Responses for Square wave');
 legend('Transfer Function', 'subtractiveHybrid', 'subtractiveBackpropagation', 'fcmHybrid', 'fcmBackpropagation');
 xlabel('Simulation time');
 
