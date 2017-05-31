@@ -1,3 +1,8 @@
+% Joaquim Leitão - 2011150072
+% 2016/2017 School Year
+% Doctoral Program in Information Science and Technology - Real Time Learning in Intelligent Systems
+% Assignment 4
+
 function [trainData, testData] = loadDataset(numerator, denominator, ts)
     transferFunction = tf(numerator, denominator, ts);
     transferFunction  % Just to have it pretty printed!

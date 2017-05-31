@@ -1,3 +1,8 @@
+% Joaquim Leitão - 2011150072
+% 2016/2017 School Year
+% Doctoral Program in Information Science and Technology - Real Time Learning in Intelligent Systems
+% Assignment 4
+
 function [initialFis] = initialiseFIS(varargin)
     clusteringType = varargin(1);
     clusteringType = clusteringType{1};
