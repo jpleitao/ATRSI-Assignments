@@ -67,7 +67,7 @@
 \section{Introduction}
 \label{introduction}
 
-Dynamic systems are often described and modelled by different equations, where the outputs in a given time instant (say k) are conditioned by previous outputs (in instants $k-1$, $k-2$, ...) and inputs (in instants $k$, $k-1$, $k-2$, ...). A system is also said to have \emph{inertia} when the inputs in a given instant only affect its outputs in posterior instants (that is, input at instant $k$ can only influence the output at instants $k+1$, $k+2$, ...).
+Dynamic systems are often described and modelled by difference equations, where the outputs in a given time instant (say k) are conditioned by previous outputs (in instants $k-1$, $k-2$, ...) and inputs (in instants $k$, $k-1$, $k-2$, ...). A system is also said to have \emph{inertia} when the inputs in a given instant only affect its outputs in posterior instants (that is, input at instant $k$ can only influence the output at instants $k+1$, $k+2$, ...).
 
 The current assignment proposes the development of a Sugeno-type Neuro-Fuzzy System (NFS) to model the dynamics of a given process or system with inertia. NFSs of this nature are characterised by mapping their input space to an output space using a series of fuzzy \emph{if-then} rules. In the particular case of Sugeno NFSs the output of each rule is written as a linear combination of the input variables. In simpler Sugeno systems, this linear combination consists in a constant value.
 
@@ -151,7 +151,7 @@ The generated input signal and correspondent system's output is presented in Fig
 Having generated input and output samples representative of the dynamics of the system being modelled, the actual learning process can be started. As mentioned in Section \ref{methodology}, in an initial step, estimations for the fuzzy rules are produced as a result of a clustering process of the collected data. Two clustering algorithms were studied at this point, featuring the following parameters:
 
 \begin{itemize}
-	\item \textsc{Subtractive Clustering}, where a \emph{cluster influence range} of $0.5$ was defined; s \emph{squash factor} of $1.25$ was considered, along with and an accept ratio of $0.5$ and reject ratio of $0.15$.
+	\item \textsc{Subtractive Clustering}, where a \emph{cluster influence range} of $0.5$ was defined; s \emph{squash factor} of $1.25$ was considered, along with an accept ratio of $0.5$ and reject ratio of $0.15$.
 	
 	\item \textsc{Fuzzy C-Means Clustering}, considering an exponent for the fuzzy partition matrix of $2.0$, maximum number of iterations of $100$, minimum improvement in objective function between two consecutive iterations of $10^{-5}$ and the number of clusters being automatically estimated using subtractive clustering.
 \end{itemize}
@@ -295,7 +295,7 @@ In the final step of the learning stage an ANFIS structure is used to optimise t
 
 In terms of implementation, the optimisation of the inference rules was performed using \emph{MATLAB}'s \emph{anfis} function, properly specifying the training data, the type of optimisation method and the number of epochs\footnote{A value of $200$ was defined for the epoch number.}. The last two arguments (type of optimisation and the number of epochs) were defined by creating a proper \emph{anfisOptions} object.
 
-Analysing the input membership functions of the optimised Neuro-Fuzzy Systems (NFS) no changes were registered in the NFSs where the backpropagation optimisation method was used ; however, visible changes in the mean and deviation of the gaussians were registered when the hybrid optimisation method was used along with both fuzzy c-means and subtractive clustering. Tables \ref{final_results_hybrid_subtractive}  and \ref{final_results_hybrid_fcm} presents the new input membership functions.
+Analysing the input membership functions of the optimised Neuro-Fuzzy Systems (NFS) no changes were registered in the NFSs where the backpropagation optimisation method was used; however, visible changes in the mean and deviation of the gaussians were registered when the hybrid optimisation method was used along with both fuzzy c-means and subtractive clustering. Tables \ref{final_results_hybrid_subtractive}  and \ref{final_results_hybrid_fcm} presents the new input membership functions.
 
 \pagebreak
 
@@ -413,7 +413,7 @@ Analysing the input membership functions of the optimised Neuro-Fuzzy Systems (N
 	\caption{Input Membership Functions after Hybrid optimisation when the Fuzzy C-Means Clustering method was used in the rules initialisation.}
 \end{figure}
 
-Once the optimisation was complete, the performance of the final Neuro-Fuzzy Inference System was assessed using the test data. Table \ref{test_results} presents a summary of the results of the optimisation process. The error metric used to compute both the training and testing error was the \emph{Root Mean Squared Error} (RMSE).
+Once the optimisation was complete, the performance of the final Neuro-Fuzzy Inference System was assessed using the test data. Table \ref{test_results} presents a summary of the results of the optimisation process. The error metric used to compute both the training and testing errors was the \emph{Root Mean Squared Error} (RMSE).
 
 \begin{table}[ht]
 	\begin{adjustwidth}{-1cm}{}
